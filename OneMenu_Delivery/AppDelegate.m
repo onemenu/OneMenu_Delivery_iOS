@@ -7,6 +7,8 @@
 //
 
 #import "AppDelegate.h"
+#import "OMDDeliveringViewController.h"
+#import "OMDDeliveriedViewController.h"
 
 @interface AppDelegate ()
 
@@ -16,7 +18,25 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    [NSThread sleepForTimeInterval:1.5];
+    
+    [application setStatusBarStyle:UIStatusBarStyleLightContent];
+    
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    
+    OMDDeliveringViewController *deliveringCtrl = [[OMDDeliveringViewController alloc] init];
+    UINavigationController *deliveringNavCtrl = [[UINavigationController alloc] initWithRootViewController:deliveringCtrl];
+    OMDDeliveriedViewController *deliveriedCtrl = [[OMDDeliveriedViewController alloc] init];
+    UINavigationController *deliveredNavCtrl = [[UINavigationController alloc] initWithRootViewController:deliveriedCtrl];
+    
+    self.tabbarCtrl = [[UITabBarController alloc] init];
+    self.tabbarCtrl.delegate = self;
+    self.tabbarCtrl.viewControllers = @[deliveringNavCtrl,deliveredNavCtrl];
+    
+    self.window.rootViewController = self.tabbarCtrl;
+    
+    self.window.backgroundColor = [UIColor whiteColor];
+    [self.window makeKeyAndVisible];
     return YES;
 }
 

@@ -9,13 +9,29 @@
 #import "OMDDeliveringViewController.h"
 
 @interface OMDDeliveringViewController ()
+<UITableViewDataSource,
+UITableViewDelegate>
+
+@property (nonatomic, strong) UITableView *tableView;
+@property (nonatomic, strong) NSArray *dataArray;
 
 @end
 
 @implementation OMDDeliveringViewController
 
+- (id)init
+{
+    self = [super init];
+    if (self) {
+        self.title = @"Delivering";
+    }
+    return self;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.view.backgroundColor = [UIColor redColor];
     // Do any additional setup after loading the view.
 }
 
