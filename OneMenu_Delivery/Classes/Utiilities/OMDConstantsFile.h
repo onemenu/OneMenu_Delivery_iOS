@@ -228,7 +228,7 @@ typedef NS_ENUM(int, TakeOutStatus) {
 #define kFail_key   @"0"
 
 
-//#define APP_TEST 1
+#define APP_TEST 1
 //#define APP_SIMULATION 1
 //#define APP_LOGIN 1
 

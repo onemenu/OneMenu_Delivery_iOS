@@ -19,3 +19,70 @@
 @implementation OMDNetworkBaseResult
 
 @end
+
+#pragma mark -- OMDDelivering --
+@implementation OMDDeliveringListRequest
+
+@end
+
+@implementation OMDDeliveringListResult
+
+@end
+
+@implementation OMDDeliveringDetailRequest
+
+@end
+
+@implementation OMDDeliveringDetailResult
+
+@end
+
+@implementation OMDConfirmOrderRequest
+
+@end
+
+@implementation OMDConfirmOrderResult
+
+@end
+
+@implementation OMDCancelOrderRequest
+
+@end
+
+@implementation OMDCancelOrderResult
+
+@end
+
+@implementation OMDDoneOrderRequest
+
+@end
+
+@implementation OMDDoneOrderResult
+
+@end
+
+#pragma mark -- OMDDelivered --
+@implementation OMDDeliveredListRequest
+
+@end
+
+@implementation OMDDeliveredListResult
+
+@end
+
+@implementation OMDDeliveredDetailRequest
+
+@end
+
+@implementation OMDDeliveredDetailResult
+
+@end
+
+#pragma mark -- Login --
+@implementation OMDLoginRequest
+
+@end
+
+@implementation OMDLoginResult
+
+@end

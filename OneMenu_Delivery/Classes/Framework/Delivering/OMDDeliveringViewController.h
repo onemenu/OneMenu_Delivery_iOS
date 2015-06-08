@@ -6,8 +6,8 @@
 //  Copyright (c) 2015年 One Menu Limited Liability Company. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "OMDBaseViewController.h"
 
-@interface OMDDeliveringViewController : UIViewController
+@interface OMDDeliveringViewController : OMDBaseViewController
 
 @end

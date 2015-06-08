@@ -14,7 +14,7 @@
 
 @interface OMDNetworkBaseRequest : NSObject
 
-@property (nonatomic, copy) NSString *customerId;
+@property (nonatomic, copy) NSString *driveId;
 @property (nonatomic, copy) NSString *deviceId;
 @property (nonatomic, copy) NSString *longitude;
 @property (nonatomic, copy) NSString *latitude;
@@ -25,6 +25,91 @@
 
 @property (nonatomic, copy) NSString *status;
 @property (nonatomic, copy) NSString *msg;
+
+@end
+
+#pragma mark -- OMDDelivering --
+@interface OMDDeliveringListRequest : OMDNetworkBaseRequest
+
+@end
+
+@interface OMDDeliveringListResult : OMDNetworkBaseResult
+
+@property (nonatomic, strong) NSArray *listArray;
+
+@end
+
+@interface OMDDeliveringDetailRequest : OMDNetworkBaseRequest
+
+@property (nonatomic, copy) NSString *orderId;
+
+@end
+
+@interface OMDDeliveringDetailResult : OMDNetworkBaseResult
+
+@end
+
+@interface OMDConfirmOrderRequest : OMDNetworkBaseRequest
+
+@property (nonatomic, copy) NSString *orderId;
+
+@end
+
+@interface OMDConfirmOrderResult : OMDNetworkBaseResult
+
+@end
+
+@interface OMDCancelOrderRequest : OMDNetworkBaseRequest
+
+@property (nonatomic, copy) NSString *orderId;
+
+@end
+
+@interface OMDCancelOrderResult : OMDNetworkBaseResult
+
+@end
+
+@interface OMDDoneOrderRequest : OMDNetworkBaseRequest
+
+@property (nonatomic, copy) NSString *orderId;
+
+@end
+
+@interface OMDDoneOrderResult : OMDNetworkBaseResult
+
+@end
+
+#pragma mark -- OMDDevliered --
+@interface OMDDeliveredListRequest : OMDNetworkBaseRequest
+
+@property (nonatomic, copy) NSString *startNum;
+@property (nonatomic, copy) NSString *range;
+
+@end
+
+@interface OMDDeliveredListResult : OMDNetworkBaseResult
+
+@end
+
+@interface OMDDeliveredDetailRequest : OMDNetworkBaseRequest
+
+@property (nonatomic, copy) NSString *orderId;
+
+@end
+
+@interface OMDDeliveredDetailResult : OMDNetworkBaseResult
+
+@end
+
+#pragma mark -- Login --
+@interface OMDLoginRequest : OMDNetworkBaseRequest
+
+@property (nonatomic, copy) NSString *account;
+@property (nonatomic, copy) NSString *password;
+
+@end
+
+@interface OMDLoginResult : OMDNetworkBaseResult
 
 @end
 

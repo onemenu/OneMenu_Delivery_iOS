@@ -65,6 +65,28 @@
     [tabbarItem setBadgeValue:nil];
 }
 
++ (void)decreaseAppBadgeWith:(NSInteger)count
+{
+    NSInteger num = [UIApplication sharedApplication].applicationIconBadgeNumber;
+    num -= count;
+    if (num < 0) {
+        num = 0;
+    }
+    [[UIApplication sharedApplication] setApplicationIconBadgeNumber:num];
+}
+
++ (void)increaseAppBadgeWith:(NSInteger)count
+{
+    NSInteger num = [UIApplication sharedApplication].applicationIconBadgeNumber;
+    num += count;
+    [[UIApplication sharedApplication] setApplicationIconBadgeNumber:num];
+}
+
++ (void)clearAppBadge
+{
+    [[UIApplication sharedApplication] setApplicationIconBadgeNumber:0];
+}
+
 + (NSString *)getKeyWith:(NSString *)string
 {
     return [OMUtility getKeyWith:string needLogin:[OMUtility isLogined]];

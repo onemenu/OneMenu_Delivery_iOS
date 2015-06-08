@@ -20,6 +20,19 @@
 		D342CDAE1B1FED2000FB135D /* OMDDeliveriedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D342CDAD1B1FED2000FB135D /* OMDDeliveriedViewController.m */; };
 		D342CDB11B208C5100FB135D /* OMDNetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D342CDB01B208C5100FB135D /* OMDNetworkManager.m */; };
 		D342CDB41B2090BB00FB135D /* OMDNetworkObjects.m in Sources */ = {isa = PBXBuildFile; fileRef = D342CDB31B2090BB00FB135D /* OMDNetworkObjects.m */; };
+		D39625581B20F085004FB585 /* OMDDeliveringDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D39625571B20F085004FB585 /* OMDDeliveringDetailViewController.m */; };
+		D396255B1B20F1A6004FB585 /* OMDDeliveringObject.m in Sources */ = {isa = PBXBuildFile; fileRef = D396255A1B20F1A6004FB585 /* OMDDeliveringObject.m */; };
+		D396255E1B20F5CF004FB585 /* OMDDeliveringCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D396255D1B20F5CF004FB585 /* OMDDeliveringCell.m */; };
+		D39625611B20F685004FB585 /* OMBaseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D39625601B20F685004FB585 /* OMBaseCell.m */; };
+		D39625641B20F6CE004FB585 /* OMDBaseObject.m in Sources */ = {isa = PBXBuildFile; fileRef = D39625631B20F6CE004FB585 /* OMDBaseObject.m */; };
+		D39625671B210044004FB585 /* OMDFalseDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D39625661B210044004FB585 /* OMDFalseDataManager.m */; };
+		D396256B1B212666004FB585 /* OMDMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D396256A1B212666004FB585 /* OMDMapViewController.m */; };
+		D396256D1B2126C4004FB585 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D396256C1B2126C4004FB585 /* CoreLocation.framework */; };
+		D39625701B21E45A004FB585 /* OMDBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D396256F1B21E45A004FB585 /* OMDBaseViewController.m */; };
+		D39625731B21E4BC004FB585 /* OMBaseNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = D39625721B21E4BC004FB585 /* OMBaseNavigationController.m */; };
+		D39625741B229847004FB585 /* OMDNetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D342CDB01B208C5100FB135D /* OMDNetworkManager.m */; };
+		D3B90C601B24BA57008741E6 /* OMDLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3B90C5F1B24BA57008741E6 /* OMDLoginViewController.m */; };
+		D3B90C681B24FBAD008741E6 /* OMDDeliveredObject.m in Sources */ = {isa = PBXBuildFile; fileRef = D3B90C671B24FBAD008741E6 /* OMDDeliveredObject.m */; };
 		D3C1DB191B20DAB000C941F4 /* OMDCalculateManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D3C1DB181B20DAB000C941F4 /* OMDCalculateManager.m */; };
 		D3C1DB1C1B20DAB900C941F4 /* OMDLocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D3C1DB1A1B20DAB900C941F4 /* OMDLocationManager.m */; };
 		D3C1DB1F1B20DC6300C941F4 /* OMUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = D3C1DB1E1B20DC6300C941F4 /* OMUtility.m */; };
@@ -30,7 +43,6 @@
 		D3C1DB341B20DD0700C941F4 /* GTMBase64.m in Sources */ = {isa = PBXBuildFile; fileRef = D3C1DB2B1B20DD0700C941F4 /* GTMBase64.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		D3C1DB351B20DD0700C941F4 /* MD5Util.m in Sources */ = {isa = PBXBuildFile; fileRef = D3C1DB2E1B20DD0700C941F4 /* MD5Util.m */; };
 		D3C1DB361B20DD0700C941F4 /* TDESUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = D3C1DB301B20DD0700C941F4 /* TDESUtil.m */; };
-		D3C1DB3A1B20DD3000C941F4 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = D3C1DB391B20DD3000C941F4 /* MBProgressHUD.m */; };
 		D3C1DB5D1B20DD3600C941F4 /* MKAnnotationView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = D3C1DB3D1B20DD3600C941F4 /* MKAnnotationView+WebCache.m */; };
 		D3C1DB5E1B20DD3600C941F4 /* NSData+ImageContentType.m in Sources */ = {isa = PBXBuildFile; fileRef = D3C1DB3F1B20DD3600C941F4 /* NSData+ImageContentType.m */; };
 		D3C1DB5F1B20DD3600C941F4 /* SDImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = D3C1DB411B20DD3600C941F4 /* SDImageCache.m */; };
@@ -103,6 +115,29 @@
 		D342CDB01B208C5100FB135D /* OMDNetworkManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OMDNetworkManager.m; sourceTree = "<group>"; };
 		D342CDB21B2090BB00FB135D /* OMDNetworkObjects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OMDNetworkObjects.h; sourceTree = "<group>"; };
 		D342CDB31B2090BB00FB135D /* OMDNetworkObjects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OMDNetworkObjects.m; sourceTree = "<group>"; };
+		D39625561B20F085004FB585 /* OMDDeliveringDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OMDDeliveringDetailViewController.h; sourceTree = "<group>"; };
+		D39625571B20F085004FB585 /* OMDDeliveringDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OMDDeliveringDetailViewController.m; sourceTree = "<group>"; };
+		D39625591B20F1A6004FB585 /* OMDDeliveringObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OMDDeliveringObject.h; sourceTree = "<group>"; };
+		D396255A1B20F1A6004FB585 /* OMDDeliveringObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OMDDeliveringObject.m; sourceTree = "<group>"; };
+		D396255C1B20F5CF004FB585 /* OMDDeliveringCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OMDDeliveringCell.h; sourceTree = "<group>"; };
+		D396255D1B20F5CF004FB585 /* OMDDeliveringCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OMDDeliveringCell.m; sourceTree = "<group>"; };
+		D396255F1B20F685004FB585 /* OMBaseCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OMBaseCell.h; sourceTree = "<group>"; };
+		D39625601B20F685004FB585 /* OMBaseCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OMBaseCell.m; sourceTree = "<group>"; };
+		D39625621B20F6CE004FB585 /* OMDBaseObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OMDBaseObject.h; sourceTree = "<group>"; };
+		D39625631B20F6CE004FB585 /* OMDBaseObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OMDBaseObject.m; sourceTree = "<group>"; };
+		D39625651B210044004FB585 /* OMDFalseDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OMDFalseDataManager.h; sourceTree = "<group>"; };
+		D39625661B210044004FB585 /* OMDFalseDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OMDFalseDataManager.m; sourceTree = "<group>"; };
+		D39625691B212666004FB585 /* OMDMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OMDMapViewController.h; sourceTree = "<group>"; };
+		D396256A1B212666004FB585 /* OMDMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OMDMapViewController.m; sourceTree = "<group>"; };
+		D396256C1B2126C4004FB585 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		D396256E1B21E45A004FB585 /* OMDBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OMDBaseViewController.h; sourceTree = "<group>"; };
+		D396256F1B21E45A004FB585 /* OMDBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OMDBaseViewController.m; sourceTree = "<group>"; };
+		D39625711B21E4BC004FB585 /* OMBaseNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OMBaseNavigationController.h; sourceTree = "<group>"; };
+		D39625721B21E4BC004FB585 /* OMBaseNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OMBaseNavigationController.m; sourceTree = "<group>"; };
+		D3B90C5E1B24BA57008741E6 /* OMDLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OMDLoginViewController.h; sourceTree = "<group>"; };
+		D3B90C5F1B24BA57008741E6 /* OMDLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OMDLoginViewController.m; sourceTree = "<group>"; };
+		D3B90C661B24FBAD008741E6 /* OMDDeliveredObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OMDDeliveredObject.h; sourceTree = "<group>"; };
+		D3B90C671B24FBAD008741E6 /* OMDDeliveredObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OMDDeliveredObject.m; sourceTree = "<group>"; };
 		D3C1DB101B20D9E800C941F4 /* OMDConstantsFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OMDConstantsFile.h; sourceTree = "<group>"; };
 		D3C1DB171B20DAB000C941F4 /* OMDCalculateManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OMDCalculateManager.h; sourceTree = "<group>"; };
 		D3C1DB181B20DAB000C941F4 /* OMDCalculateManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OMDCalculateManager.m; sourceTree = "<group>"; };
@@ -125,8 +160,6 @@
 		D3C1DB2E1B20DD0700C941F4 /* MD5Util.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MD5Util.m; sourceTree = "<group>"; };
 		D3C1DB2F1B20DD0700C941F4 /* TDESUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDESUtil.h; sourceTree = "<group>"; };
 		D3C1DB301B20DD0700C941F4 /* TDESUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDESUtil.m; sourceTree = "<group>"; };
-		D3C1DB381B20DD3000C941F4 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
-		D3C1DB391B20DD3000C941F4 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		D3C1DB3C1B20DD3600C941F4 /* MKAnnotationView+WebCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MKAnnotationView+WebCache.h"; sourceTree = "<group>"; };
 		D3C1DB3D1B20DD3600C941F4 /* MKAnnotationView+WebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MKAnnotationView+WebCache.m"; sourceTree = "<group>"; };
 		D3C1DB3E1B20DD3600C941F4 /* NSData+ImageContentType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+ImageContentType.h"; sourceTree = "<group>"; };
@@ -182,6 +215,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D396256D1B2126C4004FB585 /* CoreLocation.framework in Frameworks */,
 				D3C1DB771B20DECB00C941F4 /* SystemConfiguration.framework in Frameworks */,
 				D3C1DB751B20DDA200C941F4 /* QuartzCore.framework in Frameworks */,
 				D3C1DB731B20DD9B00C941F4 /* UIKit.framework in Frameworks */,
@@ -221,6 +255,7 @@
 		AA1395639554B1164F363C7C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D396256C1B2126C4004FB585 /* CoreLocation.framework */,
 				D3C1DB761B20DECB00C941F4 /* SystemConfiguration.framework */,
 				D3C1DB741B20DDA200C941F4 /* QuartzCore.framework */,
 				D3C1DB721B20DD9B00C941F4 /* UIKit.framework */,
@@ -311,6 +346,12 @@
 		D342CD9C1B1FEABB00FB135D /* Base */ = {
 			isa = PBXGroup;
 			children = (
+				D396255F1B20F685004FB585 /* OMBaseCell.h */,
+				D39625601B20F685004FB585 /* OMBaseCell.m */,
+				D396256E1B21E45A004FB585 /* OMDBaseViewController.h */,
+				D396256F1B21E45A004FB585 /* OMDBaseViewController.m */,
+				D39625711B21E4BC004FB585 /* OMBaseNavigationController.h */,
+				D39625721B21E4BC004FB585 /* OMBaseNavigationController.m */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -318,6 +359,8 @@
 		D342CD9D1B1FEABB00FB135D /* Framework */ = {
 			isa = PBXGroup;
 			children = (
+				D3B90C5D1B24BA37008741E6 /* Login */,
+				D39625681B212639004FB585 /* Commons */,
 				D342CDA31B1FEBD800FB135D /* Deliveried */,
 				D342CDA41B1FEBD800FB135D /* Delivering */,
 			);
@@ -331,6 +374,8 @@
 				D342CDA61B1FEBE700FB135D /* Delivering */,
 				D342CDB21B2090BB00FB135D /* OMDNetworkObjects.h */,
 				D342CDB31B2090BB00FB135D /* OMDNetworkObjects.m */,
+				D39625621B20F6CE004FB585 /* OMDBaseObject.h */,
+				D39625631B20F6CE004FB585 /* OMDBaseObject.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -340,6 +385,8 @@
 			children = (
 				D342CDAF1B208C5100FB135D /* OMDNetworkManager.h */,
 				D342CDB01B208C5100FB135D /* OMDNetworkManager.m */,
+				D39625651B210044004FB585 /* OMDFalseDataManager.h */,
+				D39625661B210044004FB585 /* OMDFalseDataManager.m */,
 			);
 			path = Networks;
 			sourceTree = "<group>";
@@ -348,7 +395,6 @@
 			isa = PBXGroup;
 			children = (
 				D3C1DB3B1B20DD3600C941F4 /* SDWebImage */,
-				D3C1DB371B20DD3000C941F4 /* MBProcessHUD */,
 				D3C1DB231B20DD0700C941F4 /* Security */,
 			);
 			path = ThirdPartys;
@@ -375,6 +421,8 @@
 		D342CDA21B1FEABB00FB135D /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				D3B90C611B24C1B0008741E6 /* Commons */,
+				D3B90C621B24C1B0008741E6 /* Login */,
 				D342CDA71B1FEBFC00FB135D /* Deliveried */,
 				D342CDA81B1FEBFC00FB135D /* Delivering */,
 			);
@@ -395,6 +443,8 @@
 			children = (
 				D342CDA91B1FEC2900FB135D /* OMDDeliveringViewController.h */,
 				D342CDAA1B1FEC2900FB135D /* OMDDeliveringViewController.m */,
+				D39625561B20F085004FB585 /* OMDDeliveringDetailViewController.h */,
+				D39625571B20F085004FB585 /* OMDDeliveringDetailViewController.m */,
 			);
 			path = Delivering;
 			sourceTree = "<group>";
@@ -402,6 +452,8 @@
 		D342CDA51B1FEBE700FB135D /* Deliveried */ = {
 			isa = PBXGroup;
 			children = (
+				D3B90C661B24FBAD008741E6 /* OMDDeliveredObject.h */,
+				D3B90C671B24FBAD008741E6 /* OMDDeliveredObject.m */,
 			);
 			path = Deliveried;
 			sourceTree = "<group>";
@@ -409,6 +461,8 @@
 		D342CDA61B1FEBE700FB135D /* Delivering */ = {
 			isa = PBXGroup;
 			children = (
+				D39625591B20F1A6004FB585 /* OMDDeliveringObject.h */,
+				D396255A1B20F1A6004FB585 /* OMDDeliveringObject.m */,
 			);
 			path = Delivering;
 			sourceTree = "<group>";
@@ -423,8 +477,42 @@
 		D342CDA81B1FEBFC00FB135D /* Delivering */ = {
 			isa = PBXGroup;
 			children = (
+				D396255C1B20F5CF004FB585 /* OMDDeliveringCell.h */,
+				D396255D1B20F5CF004FB585 /* OMDDeliveringCell.m */,
 			);
 			path = Delivering;
+			sourceTree = "<group>";
+		};
+		D39625681B212639004FB585 /* Commons */ = {
+			isa = PBXGroup;
+			children = (
+				D39625691B212666004FB585 /* OMDMapViewController.h */,
+				D396256A1B212666004FB585 /* OMDMapViewController.m */,
+			);
+			path = Commons;
+			sourceTree = "<group>";
+		};
+		D3B90C5D1B24BA37008741E6 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				D3B90C5E1B24BA57008741E6 /* OMDLoginViewController.h */,
+				D3B90C5F1B24BA57008741E6 /* OMDLoginViewController.m */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		D3B90C611B24C1B0008741E6 /* Commons */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Commons;
+			sourceTree = "<group>";
+		};
+		D3B90C621B24C1B0008741E6 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Login;
 			sourceTree = "<group>";
 		};
 		D3C1DB231B20DD0700C941F4 /* Security */ = {
@@ -445,15 +533,6 @@
 				D3C1DB301B20DD0700C941F4 /* TDESUtil.m */,
 			);
 			path = Security;
-			sourceTree = "<group>";
-		};
-		D3C1DB371B20DD3000C941F4 /* MBProcessHUD */ = {
-			isa = PBXGroup;
-			children = (
-				D3C1DB381B20DD3000C941F4 /* MBProgressHUD.h */,
-				D3C1DB391B20DD3000C941F4 /* MBProgressHUD.m */,
-			);
-			path = MBProcessHUD;
 			sourceTree = "<group>";
 		};
 		D3C1DB3B1B20DD3600C941F4 /* SDWebImage */ = {
@@ -724,6 +803,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D39625741B229847004FB585 /* OMDNetworkManager.m in Sources */,
 				717AB80795456660D487091A /* main.m in Sources */,
 				CEF3F771110C64F760AEBABB /* MyTest.m in Sources */,
 			);
@@ -734,10 +814,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				D3C1DB621B20DD3600C941F4 /* SDWebImageDownloader.m in Sources */,
+				D39625581B20F085004FB585 /* OMDDeliveringDetailViewController.m in Sources */,
 				D3C1DB321B20DD0700C941F4 /* EFundSecUtil.m in Sources */,
 				D342CDB41B2090BB00FB135D /* OMDNetworkObjects.m in Sources */,
 				D3C1DB651B20DD3600C941F4 /* SDWebImagePrefetcher.m in Sources */,
 				D3C1DB6C1B20DD3600C941F4 /* UIView+WebCacheOperation.m in Sources */,
+				D39625731B21E4BC004FB585 /* OMBaseNavigationController.m in Sources */,
 				D3C1DB351B20DD0700C941F4 /* MD5Util.m in Sources */,
 				D3C1DB361B20DD0700C941F4 /* TDESUtil.m in Sources */,
 				D3C1DB681B20DD3600C941F4 /* UIImage+MultiFormat.m in Sources */,
@@ -746,14 +828,19 @@
 				D3C1DB191B20DAB000C941F4 /* OMDCalculateManager.m in Sources */,
 				D3C1DB6B1B20DD3600C941F4 /* UIImageView+WebCache.m in Sources */,
 				D3C1DB221B20DC6900C941F4 /* OMSystemConfig.m in Sources */,
-				D3C1DB3A1B20DD3000C941F4 /* MBProgressHUD.m in Sources */,
+				D39625611B20F685004FB585 /* OMBaseCell.m in Sources */,
+				D39625671B210044004FB585 /* OMDFalseDataManager.m in Sources */,
 				D342CDAE1B1FED2000FB135D /* OMDDeliveriedViewController.m in Sources */,
+				D3B90C681B24FBAD008741E6 /* OMDDeliveredObject.m in Sources */,
 				D3C1DB311B20DD0700C941F4 /* Base64Util.m in Sources */,
 				D3C1DB1C1B20DAB900C941F4 /* OMDLocationManager.m in Sources */,
 				D3C1DB1F1B20DC6300C941F4 /* OMUtility.m in Sources */,
 				D342CDB11B208C5100FB135D /* OMDNetworkManager.m in Sources */,
 				D3C1DB5E1B20DD3600C941F4 /* NSData+ImageContentType.m in Sources */,
+				D396256B1B212666004FB585 /* OMDMapViewController.m in Sources */,
+				D396255E1B20F5CF004FB585 /* OMDDeliveringCell.m in Sources */,
 				D342CD791B1FE74200FB135D /* AppDelegate.m in Sources */,
+				D3B90C601B24BA57008741E6 /* OMDLoginViewController.m in Sources */,
 				D342CD761B1FE74200FB135D /* main.m in Sources */,
 				D3C1DB641B20DD3600C941F4 /* SDWebImageManager.m in Sources */,
 				D3C1DB611B20DD3600C941F4 /* SDWebImageDecoder.m in Sources */,
@@ -764,9 +851,12 @@
 				D3C1DB601B20DD3600C941F4 /* SDWebImageCompat.m in Sources */,
 				D3C1DB661B20DD3600C941F4 /* UIButton+WebCache.m in Sources */,
 				D3C1DB6F1B20DD6200C941F4 /* NSError+String.m in Sources */,
+				D396255B1B20F1A6004FB585 /* OMDDeliveringObject.m in Sources */,
+				D39625641B20F6CE004FB585 /* OMDBaseObject.m in Sources */,
 				D3C1DB6A1B20DD3600C941F4 /* UIImageView+HighlightedWebCache.m in Sources */,
 				D3C1DB671B20DD3600C941F4 /* UIImage+GIF.m in Sources */,
 				D3C1DB5F1B20DD3600C941F4 /* SDImageCache.m in Sources */,
+				D39625701B21E45A004FB585 /* OMDBaseViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -904,11 +994,16 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Hanyuan Zhu (Y2RBN8URX2)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Hanyuan Zhu (Y2RBN8URX2)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = OneMenu_Delivery/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "460e00ea-54a4-4d8e-b68f-296466716f56";
+				PROVISIONING_PROFILE = "1b66054b-32e6-4f74-94a0-ef870e8ff1c1";
 			};
 			name = Debug;
 		};
@@ -918,11 +1013,16 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Hanyuan Zhu (Y2RBN8URX2)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Hanyuan Zhu (Y2RBN8URX2)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = OneMenu_Delivery/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "460e00ea-54a4-4d8e-b68f-296466716f56";
+				PROVISIONING_PROFILE = "1b66054b-32e6-4f74-94a0-ef870e8ff1c1";
 			};
 			name = Release;
 		};

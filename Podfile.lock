@@ -21,13 +21,22 @@ PODS:
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
   - GHUnit (0.5.9)
+  - MBProgressHUD (0.9.1)
+  - MJRefresh (1.4.7)
+  - SWTableViewCell (0.3.7)
 
 DEPENDENCIES:
   - AFNetworking (~> 2.0)
   - GHUnit (~> 0.5.9)
+  - MBProgressHUD
+  - MJRefresh (~> 1.4.7)
+  - SWTableViewCell (~> 0.3.7)
 
 SPEC CHECKSUMS:
   AFNetworking: 05edc0ac4c4c8cf57bcf4b84be5b0744b6d8e71e
   GHUnit: c54e0019313bd49a575aecc502e30597f4b6664e
+  MBProgressHUD: c47f2c166c126cf2ce36498d80f33e754d4e93ad
+  MJRefresh: 6b140993028fa30f1fcb88e82925a7c7911415cf
+  SWTableViewCell: 2a94aadc9d47b2b611fa064566bf57948b95b579
 
 COCOAPODS: 0.37.2

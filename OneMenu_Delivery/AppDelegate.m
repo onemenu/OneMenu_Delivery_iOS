@@ -10,6 +10,8 @@
 #import "OMDDeliveringViewController.h"
 #import "OMDDeliveriedViewController.h"
 
+#import "OMDLocationManager.h"
+
 @interface AppDelegate ()
 
 @end
@@ -23,6 +25,22 @@
     [application setStatusBarStyle:UIStatusBarStyleLightContent];
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    
+    if ([application respondsToSelector:@selector(registerUserNotificationSettings:)]) {
+#ifdef __IPHONE_8_0
+        UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:(UIRemoteNotificationTypeBadge
+                                                                                             |UIRemoteNotificationTypeSound
+                                                                                             |UIRemoteNotificationTypeAlert) categories:nil];
+        [application registerUserNotificationSettings:settings];
+#endif
+    } else {
+        UIRemoteNotificationType myTypes = UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeSound;
+        [application registerForRemoteNotificationTypes:myTypes];
+    }
+    
+    [[OMDLocationManager sharedInstance] start];
+    
+//    [AWSLogger defaultLogger].logLevel = AWSLogLevelVerbose;
     
     OMDDeliveringViewController *deliveringCtrl = [[OMDDeliveringViewController alloc] init];
     UINavigationController *deliveringNavCtrl = [[UINavigationController alloc] initWithRootViewController:deliveringCtrl];
@@ -61,5 +79,31 @@
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
+
+- (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken
+{
+    if (deviceToken) {
+//        NSString *notificationDeviceTokenStr = [[NSString alloc] initWithData:deviceToken encoding:NSUTF8StringEncoding];
+//        NSLog(@"tokenStr = %@",notificationDeviceTokenStr);
+//        [OMUtility saveNotificationDeviceTokenWith:notificationDeviceTokenStr];
+        NSString *token = [[deviceToken description] stringByTrimmingCharactersInSet: [NSCharacterSet characterSetWithCharactersInString:@"<>"]];
+        token = [token stringByReplacingOccurrencesOfString:@" " withString:@""];
+    }
+}
+
+- (void)application:(UIApplication *)application didRegisterUserNotificationSettings:(UIUserNotificationSettings *)notificationSettings
+{
+    [application registerForRemoteNotifications];
+}
+
+- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo
+{
+    
+}
+
+//- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler
+//{
+//    
+//}
 
 @end

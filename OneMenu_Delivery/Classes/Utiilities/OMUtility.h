@@ -47,6 +47,10 @@ typedef NS_ENUM(NSInteger, DayOfWeekType) {
 + (void)clearBadge;
 + (void)setShoppingCartBadge;
 
++ (void)decreaseAppBadgeWith:(NSInteger)count;
++ (void)increaseAppBadgeWith:(NSInteger)count;
++ (void)clearAppBadge;
+
 + (void)saveAppServerVersionWith:(NSString *)serverVersion;
 + (NSString *)getAppServerVersion;
 + (void)saveNotificationDeviceTokenWith:(NSString *)deviceToken;
