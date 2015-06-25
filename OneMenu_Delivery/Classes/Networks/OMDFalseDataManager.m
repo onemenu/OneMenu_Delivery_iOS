@@ -24,54 +24,56 @@
 + (NSArray *)gemDeliveringDatas
 {
     NSMutableArray *dataArray = [NSMutableArray array];
-    NSMutableArray *rest1Array = [NSMutableArray array];
+    NSMutableArray *order1Array = [NSMutableArray array];
     OMDDeliveringObject *obj1 = [[OMDDeliveringObject alloc] init];
     obj1.restId = @"123";
     obj1.restName = @"Fuji";
-    obj1.custAdd = @"1400 Martin Street Apt 2053";
-    obj1.custName = @"Hanyuan Zhu";
-    obj1.billPrice = @"998";
-    obj1.isOMOrder = @"1";
-    [rest1Array addObject:obj1];
+    OMDDeliveringOrderObject *orderObj1 = [[OMDDeliveringOrderObject alloc] init];
+    orderObj1.custAddr = @"1400 Martin Street Apt 2053";
+    orderObj1.readyInTime = @"7";
+    orderObj1.billPrice = @"998";
+    orderObj1.isOMOrder = @"1";
+    [order1Array addObject:orderObj1];
+    OMDDeliveringOrderObject *orderObj2 = [[OMDDeliveringOrderObject alloc] init];
+    orderObj2.custAddr = @"1400 Martin Street Apt 2053";
+    orderObj2.readyInTime = @"8";
+    orderObj2.billPrice = @"998";
+    orderObj2.isOMOrder = @"0";
+    [order1Array addObject:orderObj2];
+    obj1.orderArray = order1Array;
+    [dataArray addObject:obj1];
+    
+    NSMutableArray *order2Array = [NSMutableArray array];
     OMDDeliveringObject *obj2 = [[OMDDeliveringObject alloc] init];
-    obj2.restId = @"123";
-    obj2.restName = @"Fuji";
-    obj2.custAdd = @"1400 Martin Street Apt 2053";
-    obj2.custName = @"Hanyuan Zhu";
-    obj2.billPrice = @"998";
-    obj2.isOMOrder = @"0";
-    [rest1Array addObject:obj2];
-    [dataArray addObject:rest1Array];
+    obj2.restId = @"234";
+    obj2.restName = @"MyThai";
+    OMDDeliveringOrderObject *order3 = [[OMDDeliveringOrderObject alloc] init];
+    order3.custAddr = @"1400 Martin Street Apt 2053";
+    order3.readyInTime = @"6";
+    order3.billPrice = @"998";
+    order3.isOMOrder = @"1";
+    [order2Array addObject:order3];
+    OMDDeliveringOrderObject *order4 = [[OMDDeliveringOrderObject alloc] init];
+    order4.custAddr = @"1400 Martin Street Apt 2053";
+    order4.readyInTime = @"4";
+    order4.billPrice = @"998";
+    order4.isOMOrder = @"1";
+    [order2Array addObject:order4];
+    obj2.orderArray = order2Array;
+    [dataArray addObject:obj2];
     
-    NSMutableArray *rest2Array = [NSMutableArray array];
+    NSMutableArray *order3Array = [NSMutableArray array];
     OMDDeliveringObject *obj3 = [[OMDDeliveringObject alloc] init];
-    obj3.restId = @"234";
-    obj3.restName = @"MyThai";
-    obj3.custAdd = @"1400 Martin Street Apt 2053";
-    obj3.custName = @"Hanyuan Zhu";
-    obj3.billPrice = @"998";
-    obj3.isOMOrder = @"1";
-    [rest2Array addObject:obj3];
-    OMDDeliveringObject *obj4 = [[OMDDeliveringObject alloc] init];
-    obj4.restId = @"234";
-    obj4.restName = @"MyThai";
-    obj4.custAdd = @"1400 Martin Street Apt 2053";
-    obj4.custName = @"Hanyuan Zhu";
-    obj4.billPrice = @"998";
-    obj4.isOMOrder = @"1";
-    [rest2Array addObject:obj4];
-    [dataArray addObject:rest2Array];
-    
-    NSMutableArray *rest3Array = [NSMutableArray array];
-    OMDDeliveringObject *obj5 = [[OMDDeliveringObject alloc] init];
-    obj5.restId = @"345";
-    obj5.restName = @"BaiDu";
-    obj5.custAdd = @"1400 Martin Street Apt 2053";
-    obj5.custName = @"Hanyuan Zhu";
-    obj5.billPrice = @"998";
-    obj5.isOMOrder = @"1";
-    [rest3Array addObject:obj5];
-    [dataArray addObject:rest3Array];
+    obj3.restId = @"345";
+    obj3.restName = @"BaiDu";
+    OMDDeliveringOrderObject *order5 = [[OMDDeliveringOrderObject alloc] init];
+    order5.custAddr = @"1400 Martin Street Apt 2053";
+    order5.readyInTime = @"10";
+    order5.billPrice = @"998";
+    order5.isOMOrder = @"1";
+    [order3Array addObject:order5];
+    obj3.orderArray = order3Array;
+    [dataArray addObject:obj3];
     
     return dataArray;
 }
@@ -117,8 +119,8 @@
         obj.restId = [NSString stringWithFormat:@"%zd",123+i];
         obj.restName = restName;
         
-        obj.custName = @"Hanyuan Zhu";
-        obj.custAdd = @"1400 Martin Street Apt 2053, State College, PA";
+        obj.readyInTime = @"7";
+        obj.custAddr = @"1400 Martin Street Apt 2053, State College, PA";
         obj.billPrice = @"998";
         
         obj.isOMOrder = [NSString stringWithFormat:@"%zd",arc4random()%2];

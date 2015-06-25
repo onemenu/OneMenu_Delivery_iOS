@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <QuartzCore/QuartzCore.h>
 #import "OMDConstantsFile.h"
-#import "OMUtility.h"
+#import "OMDUtility.h"
 #import "OMDNetworkManager.h"
 #import "OMBaseNavigationController.h"
 #import "OMSystemConfig.h"
@@ -35,6 +35,7 @@
 - (void)setLeftNavigationItemImage:(UIImage *)image action:(SEL)action;
 - (void)setRightNavigationItemTittle:(NSString *)tittle action:(SEL)action;
 - (void)setRightNavigationItemImage:(UIImage *)image action:(SEL)action;
+- (void)setRightNavigationView:(UIView *)rightView;
 
 - (void)showTabBar;
 - (void)hideTabBar;

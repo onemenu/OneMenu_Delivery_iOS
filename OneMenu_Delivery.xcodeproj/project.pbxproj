@@ -10,6 +10,20 @@
 		56B3ECDEA1B84E936C33E18F /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7DBEBBB1236EA90136B6AEC3 /* libPods.a */; };
 		717AB80795456660D487091A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A8A96ECA8F205AFB017D061 /* main.m */; };
 		CEF3F771110C64F760AEBABB /* MyTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F19123C58A711A9D84C7300 /* MyTest.m */; };
+		D300DFE31B2BD0B50006DD16 /* OMDUserSession.m in Sources */ = {isa = PBXBuildFile; fileRef = D300DFE21B2BD0B50006DD16 /* OMDUserSession.m */; };
+		D300DFE41B2C66F90006DD16 /* OMDNetworkObjects.m in Sources */ = {isa = PBXBuildFile; fileRef = D342CDB31B2090BB00FB135D /* OMDNetworkObjects.m */; };
+		D300DFE51B2C671E0006DD16 /* OMDUserSession.m in Sources */ = {isa = PBXBuildFile; fileRef = D300DFE21B2BD0B50006DD16 /* OMDUserSession.m */; };
+		D300DFE61B2C671E0006DD16 /* OMSystemConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = D3C1DB211B20DC6900C941F4 /* OMSystemConfig.m */; };
+		D300DFE71B2C671E0006DD16 /* OMDUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = D3C1DB1E1B20DC6300C941F4 /* OMDUtility.m */; };
+		D300DFE81B2C671E0006DD16 /* OMDLocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D3C1DB1A1B20DAB900C941F4 /* OMDLocationManager.m */; };
+		D300DFE91B2C671E0006DD16 /* OMDCalculateManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D3C1DB181B20DAB000C941F4 /* OMDCalculateManager.m */; };
+		D300DFEA1B2C67490006DD16 /* Base64Util.m in Sources */ = {isa = PBXBuildFile; fileRef = D3C1DB251B20DD0700C941F4 /* Base64Util.m */; };
+		D300DFEB1B2C67490006DD16 /* EFundSecUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = D3C1DB271B20DD0700C941F4 /* EFundSecUtil.m */; };
+		D300DFEC1B2C67490006DD16 /* EKeyChain.m in Sources */ = {isa = PBXBuildFile; fileRef = D3C1DB291B20DD0700C941F4 /* EKeyChain.m */; };
+		D300DFED1B2C67490006DD16 /* GTMBase64.m in Sources */ = {isa = PBXBuildFile; fileRef = D3C1DB2B1B20DD0700C941F4 /* GTMBase64.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		D300DFEE1B2C67490006DD16 /* MD5Util.m in Sources */ = {isa = PBXBuildFile; fileRef = D3C1DB2E1B20DD0700C941F4 /* MD5Util.m */; };
+		D300DFEF1B2C67490006DD16 /* TDESUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = D3C1DB301B20DD0700C941F4 /* TDESUtil.m */; };
+		D31553911B2E1F9500E84704 /* OMDSignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D31553901B2E1F9500E84704 /* OMDSignUpViewController.m */; };
 		D342CD761B1FE74200FB135D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D342CD751B1FE74200FB135D /* main.m */; };
 		D342CD791B1FE74200FB135D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D342CD781B1FE74200FB135D /* AppDelegate.m */; };
 		D342CD811B1FE74200FB135D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D342CD801B1FE74200FB135D /* Images.xcassets */; };
@@ -23,7 +37,7 @@
 		D39625581B20F085004FB585 /* OMDDeliveringDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D39625571B20F085004FB585 /* OMDDeliveringDetailViewController.m */; };
 		D396255B1B20F1A6004FB585 /* OMDDeliveringObject.m in Sources */ = {isa = PBXBuildFile; fileRef = D396255A1B20F1A6004FB585 /* OMDDeliveringObject.m */; };
 		D396255E1B20F5CF004FB585 /* OMDDeliveringCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D396255D1B20F5CF004FB585 /* OMDDeliveringCell.m */; };
-		D39625611B20F685004FB585 /* OMBaseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D39625601B20F685004FB585 /* OMBaseCell.m */; };
+		D39625611B20F685004FB585 /* OMDBaseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D39625601B20F685004FB585 /* OMDBaseCell.m */; };
 		D39625641B20F6CE004FB585 /* OMDBaseObject.m in Sources */ = {isa = PBXBuildFile; fileRef = D39625631B20F6CE004FB585 /* OMDBaseObject.m */; };
 		D39625671B210044004FB585 /* OMDFalseDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D39625661B210044004FB585 /* OMDFalseDataManager.m */; };
 		D396256B1B212666004FB585 /* OMDMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D396256A1B212666004FB585 /* OMDMapViewController.m */; };
@@ -31,11 +45,13 @@
 		D39625701B21E45A004FB585 /* OMDBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D396256F1B21E45A004FB585 /* OMDBaseViewController.m */; };
 		D39625731B21E4BC004FB585 /* OMBaseNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = D39625721B21E4BC004FB585 /* OMBaseNavigationController.m */; };
 		D39625741B229847004FB585 /* OMDNetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D342CDB01B208C5100FB135D /* OMDNetworkManager.m */; };
+		D3B107BB1B34A16B009F81DF /* OMDBaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = D3B107BA1B34A16B009F81DF /* OMDBaseView.m */; };
+		D3B107BE1B34A3A6009F81DF /* OMDTipsView.m in Sources */ = {isa = PBXBuildFile; fileRef = D3B107BD1B34A3A6009F81DF /* OMDTipsView.m */; };
 		D3B90C601B24BA57008741E6 /* OMDLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3B90C5F1B24BA57008741E6 /* OMDLoginViewController.m */; };
 		D3B90C681B24FBAD008741E6 /* OMDDeliveredObject.m in Sources */ = {isa = PBXBuildFile; fileRef = D3B90C671B24FBAD008741E6 /* OMDDeliveredObject.m */; };
 		D3C1DB191B20DAB000C941F4 /* OMDCalculateManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D3C1DB181B20DAB000C941F4 /* OMDCalculateManager.m */; };
 		D3C1DB1C1B20DAB900C941F4 /* OMDLocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D3C1DB1A1B20DAB900C941F4 /* OMDLocationManager.m */; };
-		D3C1DB1F1B20DC6300C941F4 /* OMUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = D3C1DB1E1B20DC6300C941F4 /* OMUtility.m */; };
+		D3C1DB1F1B20DC6300C941F4 /* OMDUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = D3C1DB1E1B20DC6300C941F4 /* OMDUtility.m */; };
 		D3C1DB221B20DC6900C941F4 /* OMSystemConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = D3C1DB211B20DC6900C941F4 /* OMSystemConfig.m */; };
 		D3C1DB311B20DD0700C941F4 /* Base64Util.m in Sources */ = {isa = PBXBuildFile; fileRef = D3C1DB251B20DD0700C941F4 /* Base64Util.m */; };
 		D3C1DB321B20DD0700C941F4 /* EFundSecUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = D3C1DB271B20DD0700C941F4 /* EFundSecUtil.m */; };
@@ -64,6 +80,14 @@
 		D3C1DB731B20DD9B00C941F4 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3C1DB721B20DD9B00C941F4 /* UIKit.framework */; };
 		D3C1DB751B20DDA200C941F4 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3C1DB741B20DDA200C941F4 /* QuartzCore.framework */; };
 		D3C1DB771B20DECB00C941F4 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3C1DB761B20DECB00C941F4 /* SystemConfiguration.framework */; };
+		D3DBD9FD1B37015200084C6D /* OMDDeliveredObject.m in Sources */ = {isa = PBXBuildFile; fileRef = D3B90C671B24FBAD008741E6 /* OMDDeliveredObject.m */; };
+		D3DBD9FE1B37015200084C6D /* OMDDeliveringObject.m in Sources */ = {isa = PBXBuildFile; fileRef = D396255A1B20F1A6004FB585 /* OMDDeliveringObject.m */; };
+		D3DBD9FF1B37017400084C6D /* OMDBaseObject.m in Sources */ = {isa = PBXBuildFile; fileRef = D39625631B20F6CE004FB585 /* OMDBaseObject.m */; };
+		D3DBDA131B373D3200084C6D /* OMDAllOrderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D3DBDA0A1B373D3200084C6D /* OMDAllOrderCell.m */; };
+		D3DBDA141B373D3200084C6D /* OMDAllOrderObject.m in Sources */ = {isa = PBXBuildFile; fileRef = D3DBDA0C1B373D3200084C6D /* OMDAllOrderObject.m */; };
+		D3DBDA151B373D3200084C6D /* OMDAllOrderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3DBDA0E1B373D3200084C6D /* OMDAllOrderViewController.m */; };
+		D3DBDA161B373D3200084C6D /* OMDManagerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D3DBDA101B373D3200084C6D /* OMDManagerCell.m */; };
+		D3DBDA171B373D3200084C6D /* OMDManagerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3DBDA121B373D3200084C6D /* OMDManagerViewController.m */; };
 		E03DAD9BC92AFF69A945D1AA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 772CFD1115437E41A5550DEA /* Foundation.framework */; };
 		F78463F7503FEB3E8EC33574 /* libPods-Tests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A618377333A7746775944271 /* libPods-Tests.a */; };
 /* End PBXBuildFile section */
@@ -96,6 +120,10 @@
 		A618377333A7746775944271 /* libPods-Tests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Tests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AD1830CEE718D24805970E6B /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		C846198920FFA18014A6A620 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		D300DFE11B2BD0B50006DD16 /* OMDUserSession.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OMDUserSession.h; sourceTree = "<group>"; };
+		D300DFE21B2BD0B50006DD16 /* OMDUserSession.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OMDUserSession.m; sourceTree = "<group>"; };
+		D315538F1B2E1F9500E84704 /* OMDSignUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OMDSignUpViewController.h; sourceTree = "<group>"; };
+		D31553901B2E1F9500E84704 /* OMDSignUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OMDSignUpViewController.m; sourceTree = "<group>"; };
 		D342CD701B1FE74200FB135D /* OneMenu_Delivery.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OneMenu_Delivery.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D342CD741B1FE74200FB135D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D342CD751B1FE74200FB135D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -121,8 +149,8 @@
 		D396255A1B20F1A6004FB585 /* OMDDeliveringObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OMDDeliveringObject.m; sourceTree = "<group>"; };
 		D396255C1B20F5CF004FB585 /* OMDDeliveringCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OMDDeliveringCell.h; sourceTree = "<group>"; };
 		D396255D1B20F5CF004FB585 /* OMDDeliveringCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OMDDeliveringCell.m; sourceTree = "<group>"; };
-		D396255F1B20F685004FB585 /* OMBaseCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OMBaseCell.h; sourceTree = "<group>"; };
-		D39625601B20F685004FB585 /* OMBaseCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OMBaseCell.m; sourceTree = "<group>"; };
+		D396255F1B20F685004FB585 /* OMDBaseCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OMDBaseCell.h; sourceTree = "<group>"; };
+		D39625601B20F685004FB585 /* OMDBaseCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OMDBaseCell.m; sourceTree = "<group>"; };
 		D39625621B20F6CE004FB585 /* OMDBaseObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OMDBaseObject.h; sourceTree = "<group>"; };
 		D39625631B20F6CE004FB585 /* OMDBaseObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OMDBaseObject.m; sourceTree = "<group>"; };
 		D39625651B210044004FB585 /* OMDFalseDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OMDFalseDataManager.h; sourceTree = "<group>"; };
@@ -134,6 +162,10 @@
 		D396256F1B21E45A004FB585 /* OMDBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OMDBaseViewController.m; sourceTree = "<group>"; };
 		D39625711B21E4BC004FB585 /* OMBaseNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OMBaseNavigationController.h; sourceTree = "<group>"; };
 		D39625721B21E4BC004FB585 /* OMBaseNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OMBaseNavigationController.m; sourceTree = "<group>"; };
+		D3B107B91B34A16B009F81DF /* OMDBaseView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OMDBaseView.h; sourceTree = "<group>"; };
+		D3B107BA1B34A16B009F81DF /* OMDBaseView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OMDBaseView.m; sourceTree = "<group>"; };
+		D3B107BC1B34A3A6009F81DF /* OMDTipsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OMDTipsView.h; sourceTree = "<group>"; };
+		D3B107BD1B34A3A6009F81DF /* OMDTipsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OMDTipsView.m; sourceTree = "<group>"; };
 		D3B90C5E1B24BA57008741E6 /* OMDLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OMDLoginViewController.h; sourceTree = "<group>"; };
 		D3B90C5F1B24BA57008741E6 /* OMDLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OMDLoginViewController.m; sourceTree = "<group>"; };
 		D3B90C661B24FBAD008741E6 /* OMDDeliveredObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OMDDeliveredObject.h; sourceTree = "<group>"; };
@@ -143,8 +175,8 @@
 		D3C1DB181B20DAB000C941F4 /* OMDCalculateManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OMDCalculateManager.m; sourceTree = "<group>"; };
 		D3C1DB1A1B20DAB900C941F4 /* OMDLocationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OMDLocationManager.m; sourceTree = "<group>"; };
 		D3C1DB1B1B20DAB900C941F4 /* OMDLocationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OMDLocationManager.h; sourceTree = "<group>"; };
-		D3C1DB1D1B20DC6300C941F4 /* OMUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OMUtility.h; sourceTree = "<group>"; };
-		D3C1DB1E1B20DC6300C941F4 /* OMUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OMUtility.m; sourceTree = "<group>"; };
+		D3C1DB1D1B20DC6300C941F4 /* OMDUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OMDUtility.h; sourceTree = "<group>"; };
+		D3C1DB1E1B20DC6300C941F4 /* OMDUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OMDUtility.m; sourceTree = "<group>"; };
 		D3C1DB201B20DC6900C941F4 /* OMSystemConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OMSystemConfig.h; sourceTree = "<group>"; };
 		D3C1DB211B20DC6900C941F4 /* OMSystemConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OMSystemConfig.m; sourceTree = "<group>"; };
 		D3C1DB241B20DD0700C941F4 /* Base64Util.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Base64Util.h; sourceTree = "<group>"; };
@@ -199,6 +231,16 @@
 		D3C1DB721B20DD9B00C941F4 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		D3C1DB741B20DDA200C941F4 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		D3C1DB761B20DECB00C941F4 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		D3DBDA091B373D3200084C6D /* OMDAllOrderCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OMDAllOrderCell.h; sourceTree = "<group>"; };
+		D3DBDA0A1B373D3200084C6D /* OMDAllOrderCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OMDAllOrderCell.m; sourceTree = "<group>"; };
+		D3DBDA0B1B373D3200084C6D /* OMDAllOrderObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OMDAllOrderObject.h; sourceTree = "<group>"; };
+		D3DBDA0C1B373D3200084C6D /* OMDAllOrderObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OMDAllOrderObject.m; sourceTree = "<group>"; };
+		D3DBDA0D1B373D3200084C6D /* OMDAllOrderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OMDAllOrderViewController.h; sourceTree = "<group>"; };
+		D3DBDA0E1B373D3200084C6D /* OMDAllOrderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OMDAllOrderViewController.m; sourceTree = "<group>"; };
+		D3DBDA0F1B373D3200084C6D /* OMDManagerCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OMDManagerCell.h; sourceTree = "<group>"; };
+		D3DBDA101B373D3200084C6D /* OMDManagerCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OMDManagerCell.m; sourceTree = "<group>"; };
+		D3DBDA111B373D3200084C6D /* OMDManagerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OMDManagerViewController.h; sourceTree = "<group>"; };
+		D3DBDA121B373D3200084C6D /* OMDManagerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OMDManagerViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -346,12 +388,14 @@
 		D342CD9C1B1FEABB00FB135D /* Base */ = {
 			isa = PBXGroup;
 			children = (
-				D396255F1B20F685004FB585 /* OMBaseCell.h */,
-				D39625601B20F685004FB585 /* OMBaseCell.m */,
+				D396255F1B20F685004FB585 /* OMDBaseCell.h */,
+				D39625601B20F685004FB585 /* OMDBaseCell.m */,
 				D396256E1B21E45A004FB585 /* OMDBaseViewController.h */,
 				D396256F1B21E45A004FB585 /* OMDBaseViewController.m */,
 				D39625711B21E4BC004FB585 /* OMBaseNavigationController.h */,
 				D39625721B21E4BC004FB585 /* OMBaseNavigationController.m */,
+				D3B107B91B34A16B009F81DF /* OMDBaseView.h */,
+				D3B107BA1B34A16B009F81DF /* OMDBaseView.m */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -359,6 +403,7 @@
 		D342CD9D1B1FEABB00FB135D /* Framework */ = {
 			isa = PBXGroup;
 			children = (
+				D3DBDA081B373D3200084C6D /* Manager */,
 				D3B90C5D1B24BA37008741E6 /* Login */,
 				D39625681B212639004FB585 /* Commons */,
 				D342CDA31B1FEBD800FB135D /* Deliveried */,
@@ -403,10 +448,12 @@
 		D342CDA11B1FEABB00FB135D /* Utiilities */ = {
 			isa = PBXGroup;
 			children = (
+				D300DFE11B2BD0B50006DD16 /* OMDUserSession.h */,
+				D300DFE21B2BD0B50006DD16 /* OMDUserSession.m */,
 				D3C1DB201B20DC6900C941F4 /* OMSystemConfig.h */,
 				D3C1DB211B20DC6900C941F4 /* OMSystemConfig.m */,
-				D3C1DB1D1B20DC6300C941F4 /* OMUtility.h */,
-				D3C1DB1E1B20DC6300C941F4 /* OMUtility.m */,
+				D3C1DB1D1B20DC6300C941F4 /* OMDUtility.h */,
+				D3C1DB1E1B20DC6300C941F4 /* OMDUtility.m */,
 				D3C1DB1B1B20DAB900C941F4 /* OMDLocationManager.h */,
 				D3C1DB1A1B20DAB900C941F4 /* OMDLocationManager.m */,
 				D3C1DB171B20DAB000C941F4 /* OMDCalculateManager.h */,
@@ -497,6 +544,8 @@
 			children = (
 				D3B90C5E1B24BA57008741E6 /* OMDLoginViewController.h */,
 				D3B90C5F1B24BA57008741E6 /* OMDLoginViewController.m */,
+				D315538F1B2E1F9500E84704 /* OMDSignUpViewController.h */,
+				D31553901B2E1F9500E84704 /* OMDSignUpViewController.m */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -504,6 +553,8 @@
 		D3B90C611B24C1B0008741E6 /* Commons */ = {
 			isa = PBXGroup;
 			children = (
+				D3B107BC1B34A3A6009F81DF /* OMDTipsView.h */,
+				D3B107BD1B34A3A6009F81DF /* OMDTipsView.m */,
 			);
 			path = Commons;
 			sourceTree = "<group>";
@@ -573,6 +624,23 @@
 				D3C1DB5C1B20DD3600C941F4 /* UIView+WebCacheOperation.m */,
 			);
 			path = SDWebImage;
+			sourceTree = "<group>";
+		};
+		D3DBDA081B373D3200084C6D /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				D3DBDA091B373D3200084C6D /* OMDAllOrderCell.h */,
+				D3DBDA0A1B373D3200084C6D /* OMDAllOrderCell.m */,
+				D3DBDA0B1B373D3200084C6D /* OMDAllOrderObject.h */,
+				D3DBDA0C1B373D3200084C6D /* OMDAllOrderObject.m */,
+				D3DBDA0D1B373D3200084C6D /* OMDAllOrderViewController.h */,
+				D3DBDA0E1B373D3200084C6D /* OMDAllOrderViewController.m */,
+				D3DBDA0F1B373D3200084C6D /* OMDManagerCell.h */,
+				D3DBDA101B373D3200084C6D /* OMDManagerCell.m */,
+				D3DBDA111B373D3200084C6D /* OMDManagerViewController.h */,
+				D3DBDA121B373D3200084C6D /* OMDManagerViewController.m */,
+			);
+			path = Manager;
 			sourceTree = "<group>";
 		};
 		FFD62C516A51C5BF28A22064 /* Pods */ = {
@@ -803,6 +871,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D3DBD9FF1B37017400084C6D /* OMDBaseObject.m in Sources */,
+				D3DBD9FD1B37015200084C6D /* OMDDeliveredObject.m in Sources */,
+				D3DBD9FE1B37015200084C6D /* OMDDeliveringObject.m in Sources */,
+				D300DFEA1B2C67490006DD16 /* Base64Util.m in Sources */,
+				D300DFEB1B2C67490006DD16 /* EFundSecUtil.m in Sources */,
+				D300DFEC1B2C67490006DD16 /* EKeyChain.m in Sources */,
+				D300DFED1B2C67490006DD16 /* GTMBase64.m in Sources */,
+				D300DFEE1B2C67490006DD16 /* MD5Util.m in Sources */,
+				D300DFEF1B2C67490006DD16 /* TDESUtil.m in Sources */,
+				D300DFE51B2C671E0006DD16 /* OMDUserSession.m in Sources */,
+				D300DFE61B2C671E0006DD16 /* OMSystemConfig.m in Sources */,
+				D300DFE71B2C671E0006DD16 /* OMDUtility.m in Sources */,
+				D300DFE81B2C671E0006DD16 /* OMDLocationManager.m in Sources */,
+				D300DFE91B2C671E0006DD16 /* OMDCalculateManager.m in Sources */,
+				D300DFE41B2C66F90006DD16 /* OMDNetworkObjects.m in Sources */,
 				D39625741B229847004FB585 /* OMDNetworkManager.m in Sources */,
 				717AB80795456660D487091A /* main.m in Sources */,
 				CEF3F771110C64F760AEBABB /* MyTest.m in Sources */,
@@ -821,34 +904,43 @@
 				D3C1DB6C1B20DD3600C941F4 /* UIView+WebCacheOperation.m in Sources */,
 				D39625731B21E4BC004FB585 /* OMBaseNavigationController.m in Sources */,
 				D3C1DB351B20DD0700C941F4 /* MD5Util.m in Sources */,
+				D3DBDA131B373D3200084C6D /* OMDAllOrderCell.m in Sources */,
 				D3C1DB361B20DD0700C941F4 /* TDESUtil.m in Sources */,
 				D3C1DB681B20DD3600C941F4 /* UIImage+MultiFormat.m in Sources */,
 				D3C1DB691B20DD3600C941F4 /* UIImage+WebP.m in Sources */,
 				D3C1DB331B20DD0700C941F4 /* EKeyChain.m in Sources */,
+				D3B107BE1B34A3A6009F81DF /* OMDTipsView.m in Sources */,
+				D3DBDA161B373D3200084C6D /* OMDManagerCell.m in Sources */,
 				D3C1DB191B20DAB000C941F4 /* OMDCalculateManager.m in Sources */,
 				D3C1DB6B1B20DD3600C941F4 /* UIImageView+WebCache.m in Sources */,
 				D3C1DB221B20DC6900C941F4 /* OMSystemConfig.m in Sources */,
-				D39625611B20F685004FB585 /* OMBaseCell.m in Sources */,
+				D39625611B20F685004FB585 /* OMDBaseCell.m in Sources */,
 				D39625671B210044004FB585 /* OMDFalseDataManager.m in Sources */,
 				D342CDAE1B1FED2000FB135D /* OMDDeliveriedViewController.m in Sources */,
 				D3B90C681B24FBAD008741E6 /* OMDDeliveredObject.m in Sources */,
 				D3C1DB311B20DD0700C941F4 /* Base64Util.m in Sources */,
 				D3C1DB1C1B20DAB900C941F4 /* OMDLocationManager.m in Sources */,
-				D3C1DB1F1B20DC6300C941F4 /* OMUtility.m in Sources */,
+				D3C1DB1F1B20DC6300C941F4 /* OMDUtility.m in Sources */,
 				D342CDB11B208C5100FB135D /* OMDNetworkManager.m in Sources */,
 				D3C1DB5E1B20DD3600C941F4 /* NSData+ImageContentType.m in Sources */,
 				D396256B1B212666004FB585 /* OMDMapViewController.m in Sources */,
 				D396255E1B20F5CF004FB585 /* OMDDeliveringCell.m in Sources */,
+				D300DFE31B2BD0B50006DD16 /* OMDUserSession.m in Sources */,
 				D342CD791B1FE74200FB135D /* AppDelegate.m in Sources */,
+				D3DBDA171B373D3200084C6D /* OMDManagerViewController.m in Sources */,
 				D3B90C601B24BA57008741E6 /* OMDLoginViewController.m in Sources */,
+				D3B107BB1B34A16B009F81DF /* OMDBaseView.m in Sources */,
+				D3DBDA141B373D3200084C6D /* OMDAllOrderObject.m in Sources */,
 				D342CD761B1FE74200FB135D /* main.m in Sources */,
 				D3C1DB641B20DD3600C941F4 /* SDWebImageManager.m in Sources */,
 				D3C1DB611B20DD3600C941F4 /* SDWebImageDecoder.m in Sources */,
 				D3C1DB631B20DD3600C941F4 /* SDWebImageDownloaderOperation.m in Sources */,
 				D342CDAB1B1FEC2900FB135D /* OMDDeliveringViewController.m in Sources */,
 				D3C1DB341B20DD0700C941F4 /* GTMBase64.m in Sources */,
+				D31553911B2E1F9500E84704 /* OMDSignUpViewController.m in Sources */,
 				D3C1DB5D1B20DD3600C941F4 /* MKAnnotationView+WebCache.m in Sources */,
 				D3C1DB601B20DD3600C941F4 /* SDWebImageCompat.m in Sources */,
+				D3DBDA151B373D3200084C6D /* OMDAllOrderViewController.m in Sources */,
 				D3C1DB661B20DD3600C941F4 /* UIButton+WebCache.m in Sources */,
 				D3C1DB6F1B20DD6200C941F4 /* NSError+String.m in Sources */,
 				D396255B1B20F1A6004FB585 /* OMDDeliveringObject.m in Sources */,
@@ -946,7 +1038,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -981,7 +1073,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;

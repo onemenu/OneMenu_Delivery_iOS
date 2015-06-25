@@ -6,9 +6,9 @@
 //  Copyright (c) 2015年 One Menu Limited Liability Company. All rights reserved.
 //
 
-#import "OMBaseCell.h"
+#import "OMDBaseCell.h"
 
-@interface OMDDeliveringCell : OMBaseCell
+@interface OMDDeliveringCell : OMDBaseCell
 
 + (CGFloat)heightForCell;
 

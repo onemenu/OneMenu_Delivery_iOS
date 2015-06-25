@@ -10,4 +10,6 @@
 
 @interface OMDDeliveringViewController : OMDBaseViewController
 
+- (void)refreshTableView;
+
 @end

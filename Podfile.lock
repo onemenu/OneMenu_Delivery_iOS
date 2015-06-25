@@ -20,23 +20,67 @@ PODS:
   - AFNetworking/UIKit (2.5.4):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
+  - AWSCognito (2.1.1):
+    - AWSCore (~> 2.1.1)
+    - Bolts (~> 1.1.0)
+    - Mantle (~> 1.4)
+    - Reachability (~> 3.1)
+    - UICKeyChainStore (~> 2.0)
+  - AWSCore (2.1.1):
+    - Bolts (~> 1.1.0)
+    - GZIP (~> 1.0.3)
+    - Mantle (~> 1.4)
+    - Reachability (~> 3.1)
+    - UICKeyChainStore (~> 2.0)
+    - XMLDictionary (~> 1.4.0)
+  - AWSSNS (2.1.1):
+    - AWSCore (= 2.1.1)
+    - Bolts (~> 1.1.0)
+    - Mantle (~> 1.4)
+  - Bolts (1.1.5):
+    - Bolts/AppLinks (= 1.1.5)
+    - Bolts/Tasks (= 1.1.5)
+  - Bolts/AppLinks (1.1.5):
+    - Bolts/Tasks
+  - Bolts/Tasks (1.1.5)
   - GHUnit (0.5.9)
+  - GZIP (1.0.3)
+  - JSBadgeView (1.4.1)
+  - Mantle (1.5.4):
+    - Mantle/extobjc (= 1.5.4)
+  - Mantle/extobjc (1.5.4)
   - MBProgressHUD (0.9.1)
   - MJRefresh (1.4.7)
+  - Reachability (3.2)
   - SWTableViewCell (0.3.7)
+  - UICKeyChainStore (2.0.5)
+  - XMLDictionary (1.4)
 
 DEPENDENCIES:
   - AFNetworking (~> 2.0)
+  - AWSCognito
+  - AWSSNS
   - GHUnit (~> 0.5.9)
+  - JSBadgeView
   - MBProgressHUD
   - MJRefresh (~> 1.4.7)
   - SWTableViewCell (~> 0.3.7)
 
 SPEC CHECKSUMS:
   AFNetworking: 05edc0ac4c4c8cf57bcf4b84be5b0744b6d8e71e
+  AWSCognito: c251f1f166c74343493451e238ca7157e1e33dda
+  AWSCore: 0e82eabc27a96d765b1e2ad4d30b96c1cd298300
+  AWSSNS: 49d9144ec52c8650ba9207232fdd17c68289fac8
+  Bolts: aac24961496d504aa56fc267cde95162a71bac39
   GHUnit: c54e0019313bd49a575aecc502e30597f4b6664e
+  GZIP: f0863fda354e8f83316508c0a2c7bbe385e39129
+  JSBadgeView: 3861ddee41094284d9468e6d0af5107f703aaac5
+  Mantle: 60acd0cd363e27d945bda0a6b8e90577112d28f3
   MBProgressHUD: c47f2c166c126cf2ce36498d80f33e754d4e93ad
   MJRefresh: 6b140993028fa30f1fcb88e82925a7c7911415cf
+  Reachability: 33e18b67625424e47b6cde6d202dce689ad7af96
   SWTableViewCell: 2a94aadc9d47b2b611fa064566bf57948b95b579
+  UICKeyChainStore: a389515ca090d4d49780fd563fec961571caa92b
+  XMLDictionary: f9f51601ba76678b594ab485f2b00ec1fed23724
 
 COCOAPODS: 0.37.2

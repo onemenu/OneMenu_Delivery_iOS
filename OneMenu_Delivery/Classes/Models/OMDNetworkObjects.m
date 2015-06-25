@@ -20,6 +20,40 @@
 
 @end
 
+//test
+@implementation OMDAllOrderRequest
+
+@end
+
+@implementation OMDAllOrderResult
+
+@end
+
+@implementation OMDAssignOrderRequest
+
+@end
+
+@implementation OMDAssignOrderResult
+
+@end
+
+@implementation OMDChangeDriverOnDutyRequest
+
+@end
+
+@implementation OMDChangeDriverOnDutyResult
+
+@end
+
+#pragma mark -- Commons --
+@implementation OMDAppConfigRequest
+
+@end
+
+@implementation OMDAppConfigResult
+
+@end
+
 #pragma mark -- OMDDelivering --
 @implementation OMDDeliveringListRequest
 
@@ -61,6 +95,22 @@
 
 @end
 
+@implementation OMDGetDriverListRequest
+
+@end
+
+@implementation OMDGetDriverListResult
+
+@end
+
+@implementation OMDResetOrderPriceRequest
+
+@end
+
+@implementation OMDResetOrderPriceResult
+
+@end
+
 #pragma mark -- OMDDelivered --
 @implementation OMDDeliveredListRequest
 
@@ -79,10 +129,27 @@
 @end
 
 #pragma mark -- Login --
+
+@implementation OMDSignUpRequest
+
+@end
+
+@implementation OMDSignUpResult
+
+@end
+
 @implementation OMDLoginRequest
 
 @end
 
 @implementation OMDLoginResult
+
+@end
+
+@implementation OMDAutoLoginRequest
+
+@end
+
+@implementation OMDAutoLoginResult
 
 @end

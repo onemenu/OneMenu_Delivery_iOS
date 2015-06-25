@@ -12,6 +12,10 @@
 
 @end
 
+@implementation OMDDeliveringOrderObject
+
+@end
+
 @implementation OMDDeliveringDetailObject
 
 @end

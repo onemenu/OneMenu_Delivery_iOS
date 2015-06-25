@@ -7,10 +7,14 @@
 //
 
 #import "OMDBaseViewController.h"
+#import "OMDTipsView.h"
 
 @interface OMDDeliveringDetailViewController : OMDBaseViewController
 
-@property (nonatomic, copy) void (^confirmBlock)(NSInteger index);
-@property (nonatomic, assign) NSInteger index;
+@property (nonatomic, copy) void (^confirmBlock)(OrderStatus status, NSIndexPath *indexPath);
+@property (nonatomic, copy) void (^resetPriceBlock)(NSString *billPrice, NSIndexPath *indexPath);
+@property (nonatomic, assign) NSIndexPath *indexPath;
+
+@property (nonatomic, copy) NSString *orderId;
 
 @end

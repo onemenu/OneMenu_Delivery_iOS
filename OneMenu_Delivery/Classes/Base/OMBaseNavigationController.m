@@ -56,7 +56,7 @@
 
 - (void)pushViewController:(UIViewController *)viewController animated:(BOOL)animated horizontal:(DirectionStatus)directionStatus
 {
-    UIImage *image = [OMUtility screenImage];
+    UIImage *image = [OMDUtility screenImage];
     UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight)];
     imageView.image = image;
     [[[UIApplication sharedApplication] keyWindow] addSubview:imageView];

@@ -21,6 +21,29 @@ typedef void (^CurrencyFailureBlock)(AFHTTPRequestOperation *operation, NSError 
 + (id)createNetworkEngineer;
 + (void)destroyEngineer;
 
+//test
+- (void)testRequest;
+- (void)getAllOrderListWith:(OMDAllOrderRequest *)request
+              completeBlock:(CurrencyResponseObjectBlock)completeBlock
+               failureBlock:(CurrencyFailureBlock)failureBlock;
+
+- (void)assignOrderWith:(OMDAssignOrderRequest *)request
+          completeBlock:(CurrencyResponseObjectBlock)completeBlock
+           failureBlock:(CurrencyFailureBlock)failureBlock;
+
+- (void)getDriverListWith:(OMDGetDriverListRequest *)request
+            completeBlock:(CurrencyResponseObjectBlock)completeBlock
+             failureBlock:(CurrencyFailureBlock)failureBlock;
+
+- (void)changeDriverOnDutyStatusWith:(OMDChangeDriverOnDutyRequest *)request
+                       completeBlock:(CurrencyResponseObjectBlock)completeBlock
+                        failureBlock:(CurrencyFailureBlock)failureBlock;
+
+#pragma mark -- Commons --
+- (void)getAppConfigWith:(OMDAppConfigRequest *)request
+           completeBlock:(CurrencyResponseObjectBlock)completeBlock
+            failureBlock:(CurrencyFailureBlock)failureBlock;
+
 #pragma mark -- Delivering --
 - (void)getDeliveringListDataWith:(OMDDeliveringListRequest *)request
                     completeBlock:(CurrencyResponseObjectBlock)completeBlock
@@ -42,6 +65,10 @@ typedef void (^CurrencyFailureBlock)(AFHTTPRequestOperation *operation, NSError 
         completeBlock:(CurrencyResponseObjectBlock)completeBlock
          failureBlock:(CurrencyFailureBlock)failureBlock;
 
+- (void)resetOrderPriceWith:(OMDResetOrderPriceRequest *)request
+              completeBlock:(CurrencyResponseObjectBlock)completeBlock
+               failureBlock:(CurrencyFailureBlock)failureBlock;
+
 #pragma mark -- Delivered --
 - (void)getDeliveredListDataWith:(OMDDeliveredListRequest *)request
                    completeBlock:(CurrencyResponseObjectBlock)completeBlock
@@ -52,8 +79,16 @@ typedef void (^CurrencyFailureBlock)(AFHTTPRequestOperation *operation, NSError 
                   failureBlock:(CurrencyFailureBlock)failureBlock;
 
 #pragma mark -- Login --
+- (void)signUpWith:(OMDSignUpRequest *)request
+     completeBlock:(CurrencyResponseObjectBlock)completeBlock
+      failureBlock:(CurrencyFailureBlock)failureBlock;
+
 - (void)loginWith:(OMDLoginRequest *)request
     completeBlock:(CurrencyResponseObjectBlock)completeBlock
      failureBlock:(CurrencyFailureBlock)failureBlock;
+
+- (void)autoLoginWith:(OMDAutoLoginRequest *)request
+        completeBlock:(CurrencyResponseObjectBlock)completeBlock
+         failureBlock:(CurrencyFailureBlock)failureBlock;
 
 @end

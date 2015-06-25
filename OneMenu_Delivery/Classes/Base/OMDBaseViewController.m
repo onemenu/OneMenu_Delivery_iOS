@@ -10,6 +10,8 @@
 #import "OMDConstantsFile.h"
 #import "MBProgressHUD.h"
 
+#define kNavigationRightViewTag 987
+
 @interface OMDBaseViewController ()
 
 @end
@@ -50,9 +52,16 @@
         self.navigationController.interactivePopGestureRecognizer.delegate = nil;
     }
     
-    self.view.backgroundColor = [UIColor clearColor];
     self.view.autoresizesSubviews = YES;
     self.view.autoresizingMask = UIViewAutoresizingFlexibleHeight|UIViewAutoresizingFlexibleBottomMargin|UIViewAutoresizingFlexibleTopMargin;
+    
+//    UIView *navigationView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth-2*10, 44)];
+//    navigationView.backgroundColor = [UIColor clearColor];
+    
+//    self.navigationItem.titleView = navigationView;
+//    self.navigationItem.hidesBackButton = YES;
+    
+//    [self setLeftNavigationItemTittle:@"Back" action:nil];
     
     CGRect rect = self.view.frame;
     if (self.hidesBottomBarWhenPushed == NO) {
@@ -100,10 +109,31 @@
 }
 
 #pragma mark -- SetNavigationBar Views --
+//- (void)setNavigationTitle:(NSString *)navigationTitle
+//{
+//    UILabel *titleLabel = (UILabel *)[self.navigationItem.titleView viewWithTag:kNavigationTitleLabelTag];
+//    
+//    CGRect rect = self.navigationItem.titleView.frame;
+//    BOOL needRelease = YES;
+//    if (titleLabel && [titleLabel isKindOfClass:[UILabel class]]) {
+//        needRelease = NO;
+//    } else {
+//        titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, rect.size.width, 44)];
+//    }
+//    
+//    titleLabel.text = navigationTitle;
+//    titleLabel.textAlignment = NSTextAlignmentCenter;
+//    titleLabel.font = [UIFont boldSystemFontOfSize:18.0];
+//    titleLabel.backgroundColor = [UIColor clearColor];
+//    titleLabel.textColor = [UIColor darkTextColor];//[UIColor colorWithRed:83.0/255.0 green:19.0/255.0 blue:64.0/255.0 alpha:1.0];
+//    titleLabel.tag = kNavigationTitleLabelTag;
+//    [self.navigationItem.titleView addSubview:titleLabel];
+//}
+
 - (void)setNavigationTitle:(NSString *)navigationTitle
 {
     self.navigationItem.title = navigationTitle;
-    NSDictionary *attDic = [NSDictionary dictionaryWithObjectsAndKeys:[UIColor whiteColor],NSForegroundColorAttributeName,[UIFont fontWithName:kHelvetica_key size:18.0],NSFontAttributeName, nil];
+    NSDictionary *attDic = [NSDictionary dictionaryWithObjectsAndKeys:[UIColor darkTextColor],NSForegroundColorAttributeName,[UIFont fontWithName:kHelvetica_key size:18.0],NSFontAttributeName, nil];
     self.navigationController.navigationBar.titleTextAttributes = attDic;
 }
 
@@ -136,6 +166,18 @@
     UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithImage:image style:UIBarButtonItemStylePlain target:self action:action];
 //    rightItem.tintColor = [UIColor whiteColor];
     [self.navigationItem setRightBarButtonItem:rightItem];
+}
+
+- (void)setRightNavigationView:(UIView *)rightView
+{
+    UIView *oldRightView = [self.navigationItem.titleView viewWithTag:kRightNavigationButtonTag];
+    if (oldRightView) {
+        [oldRightView removeFromSuperview];
+    }
+    CGRect rect = self.navigationItem.titleView.frame;
+    rightView.frame = CGRectMake(rect.size.width-10-rightView.frame.size.width, (44-rightView.frame.size.height)/2, rightView.frame.size.width, rightView.frame.size.height);
+    rightView.tag = kRightNavigationButtonTag;
+    [self.navigationItem.titleView addSubview:rightView];
 }
 
 - (void)backAction
@@ -240,9 +282,10 @@
                       sureString:(NSString *)sureStr
 {
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:message delegate:self cancelButtonTitle:cancelStr otherButtonTitles:sureStr, nil];
-    if (tag>=0) {
-        alert.tag = tag;
-    }
+    alert.tag = tag;
+//    if (tag>=0) {
+//        alert.tag = tag;
+//    }
     [alert show];
 }
 

@@ -40,6 +40,7 @@ UITableViewDelegate>
 
 - (void)setupViews
 {
+    [self setNavigationTitle:@"Delivered"];
     self.view.backgroundColor = [UIColor whiteColor];
     self.tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
     self.tableView.delegate = self;
@@ -51,9 +52,14 @@ UITableViewDelegate>
     [self.tableView addGifHeaderWithRefreshingBlock:^{
         
     }];
-    [self.tableView addGifHeaderWithRefreshingTarget:self refreshingAction:@selector(refreshAction)];
-    [self.tableView addGifFooterWithRefreshingTarget:self refreshingAction:@selector(loadMoreAction)];
+    [self.tableView addLegendHeaderWithRefreshingTarget:self refreshingAction:@selector(refreshAction)];
     [self.tableView.header setUpdatedTimeHidden:YES];
+    [self.tableView.header beginRefreshing];
+}
+
+- (void)refreshTableView
+{
+    [self.tableView.header beginRefreshing];
 }
 
 - (void)refreshAction
@@ -65,9 +71,7 @@ UITableViewDelegate>
 
 - (void)loadMoreAction
 {
-    [self.dataArray addObjectsFromArray:[[OMDFalseDataManager gemDeliveredDatas] mutableCopy]];
-    [self.tableView.footer endRefreshing];
-    [self.tableView reloadData];
+    [self doDeliveredRequestWith:NO];
 }
 
 - (void)initData
@@ -81,9 +85,47 @@ UITableViewDelegate>
 }
 
 #pragma mark -- Network Methods --
-- (void)doDeliveredRequest
+- (void)doDeliveredRequestWith:(BOOL)isRefresh
 {
-    [self showProcessHUD:nil];
+    __weak OMDDeliveriedViewController *wSelf = self;
+    
+    if (isRefresh) {
+        [self.dataArray removeAllObjects];
+        [self.tableView removeFooter];
+    }
+    OMDDeliveredListRequest *request = [[OMDDeliveredListRequest alloc] init];
+    request.driverId = [OMDUtility getCurrentCustomerId];
+    request.startNum = [NSString stringWithFormat:@"%zd",self.dataArray.count];
+    request.range = @"15";
+    
+    [[OMDNetworkManager createNetworkEngineer]
+     getDeliveredListDataWith:request
+     completeBlock:^(OMDNetworkBaseResult *responseObj) {
+         OMDDeliveriedViewController *sSelf = wSelf;
+         OMDDeliveredListResult *result = (OMDDeliveredListResult *)responseObj;
+         if (isRefresh) {
+             [sSelf.tableView.header endRefreshing];
+         }
+         else {
+             [sSelf.tableView.footer endRefreshing];
+         }
+         if ([result.status isEqualToString:kSuccessCode]) {
+             if (sSelf.dataArray.count == 0) {
+                 [sSelf.tableView addLegendFooterWithRefreshingTarget:sSelf refreshingAction:@selector(loadMoreAction)];
+             }
+             [sSelf.dataArray addObjectsFromArray:result.listArray];
+             [sSelf.tableView reloadData];
+         }
+         else {
+             [sSelf showAlertViewWithMessage:result.msg];
+         }
+    }
+     failureBlock:^(AFHTTPRequestOperation *operation, NSError *error) {
+        OMDDeliveriedViewController *sSelf = wSelf;
+         [sSelf.tableView.header endRefreshing];
+         [sSelf.tableView.footer endRefreshing];
+         [sSelf showAlertViewWithMessage:kCheckNetConnection];
+    }];
     
 }
 

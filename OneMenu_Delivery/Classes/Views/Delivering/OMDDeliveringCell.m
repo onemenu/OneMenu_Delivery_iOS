@@ -12,7 +12,7 @@
 @interface OMDDeliveringCell()
 
 @property (nonatomic, strong) UIView *containsView;
-@property (nonatomic, strong) UILabel *custNameLabel;
+@property (nonatomic, strong) UILabel *readyInTimeLabel;
 @property (nonatomic, strong) UILabel *billPirceLabel;
 @property (nonatomic, strong) UILabel *custAddr;
 
@@ -44,14 +44,15 @@
     self.containsView.backgroundColor = [UIColor whiteColor];
     [self.contentView addSubview:self.containsView];
     
-    self.custNameLabel = [[UILabel alloc] initWithFrame:CGRectMake(5, 5, 200, 21)];
-    [self.containsView addSubview:self.custNameLabel];
+    self.readyInTimeLabel = [[UILabel alloc] initWithFrame:CGRectMake(5, 5, 240, 21)];
+    self.readyInTimeLabel.font = [UIFont systemFontOfSize:15.0];
+    [self.containsView addSubview:self.readyInTimeLabel];
     
     self.billPirceLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.containsView.frame.size.width-5-100, 5, 100, 21)];
     self.billPirceLabel.textAlignment = NSTextAlignmentRight;
     [self.containsView addSubview:self.billPirceLabel];
     
-    self.custAddr = [[UILabel alloc] initWithFrame:CGRectMake(5, self.custNameLabel.frame.origin.y+self.custNameLabel.frame.size.height, rect.size.width-5*2, rect.size.height-5*2)];
+    self.custAddr = [[UILabel alloc] initWithFrame:CGRectMake(5, self.readyInTimeLabel.frame.origin.y+self.readyInTimeLabel.frame.size.height, rect.size.width-5*2, rect.size.height-5*2)];
     self.custAddr.lineBreakMode = NSLineBreakByTruncatingTail;
     self.custAddr.numberOfLines = 10;
     [self.containsView addSubview:self.custAddr];
@@ -72,15 +73,23 @@
               actionBlock:(CellActionIndexPath)action
 {
     [super setupCellWithItem:item indexPath:indexPath actionBlock:action];
-    if ([item isKindOfClass:[OMDDeliveringObject class]]) {
-        OMDDeliveringObject *obj = (OMDDeliveringObject *)item;
-        if (![OMUtility StringIsEmptyWith:obj.custName]) {
-            self.custNameLabel.text = obj.custName;
+    if ([item isKindOfClass:[OMDDeliveringOrderObject class]]) {
+        OMDDeliveringOrderObject *obj = (OMDDeliveringOrderObject *)item;
+        if (![OMDUtility StringIsEmptyWith:obj.readyInTime]) {
+            if ([OMDCalculateManager isBiggerDecimalNumberWithStringOne:obj.readyInTime stringTwo:@"0"]) {
+                self.readyInTimeLabel.text = [NSString stringWithFormat:@"Order ready in %@ Mins",obj.readyInTime];
+            }
+            else if ([OMDCalculateManager isSmallerDecimalNumberWithStringOne:obj.readyInTime stringTwo:@"0"]) {
+                self.readyInTimeLabel.text = [NSString stringWithFormat:@"Order is ready %@ Mins",obj.readyInTime];
+            }
+            else {
+                self.readyInTimeLabel.text = @"Order is ready now!";
+            }
         }
-        if (![OMUtility StringIsEmptyWith:obj.custAdd]) {
-            self.custAddr.text = obj.custAdd;
+        if (![OMDUtility StringIsEmptyWith:obj.custAddr]) {
+            self.custAddr.text = obj.custAddr;
         }
-        if (![OMUtility StringIsEmptyWith:obj.billPrice]) {
+        if (![OMDUtility StringIsEmptyWith:obj.billPrice]) {
             self.billPirceLabel.text = [NSString stringWithFormat:@"$ %@",obj.billPrice];
         }
         if (obj.status == OrderStatus_DriverUnConfirm) {

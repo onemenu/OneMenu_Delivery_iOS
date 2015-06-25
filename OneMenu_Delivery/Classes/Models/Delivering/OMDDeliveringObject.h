@@ -8,6 +8,18 @@
 
 #import "OMDBaseObject.h"
 
+@interface OMDDeliveringObject : OMDBaseObject
+
+// rest info
+@property (nonatomic, copy) NSString *restId;
+@property (nonatomic, copy) NSString *restName;
+//@property (nonatomic, copy) NSString *restLongitude;
+//@property (nonatomic, copy) NSString *restLatitude;
+
+@property (nonatomic, strong) NSArray *orderArray;
+
+@end
+
 typedef NS_ENUM(NSInteger, OrderStatus)
 {
     OrderStatus_DriverUnConfirm = 0,
@@ -16,20 +28,16 @@ typedef NS_ENUM(NSInteger, OrderStatus)
     OrderStatus_DriverDone
 };
 
-@interface OMDDeliveringObject : OMDBaseObject
-
-// rest info
-@property (nonatomic, copy) NSString *restId;
-@property (nonatomic, copy) NSString *restName;
-@property (nonatomic, copy) NSString *restLongitude;
-@property (nonatomic, copy) NSString *restLatitude;
+@interface OMDDeliveringOrderObject : OMDBaseObject
 
 // onemenu info
-@property (nonatomic, copy) NSString *custName;
-@property (nonatomic, copy) NSString *custAdd;
+//@property (nonatomic, copy) NSString *custName;
+@property (nonatomic, copy) NSString *custAddr;
 @property (nonatomic, copy) NSString *billPrice;
 
 // commons info
+@property (nonatomic, copy) NSString *orderId;
+@property (nonatomic, copy) NSString *readyInTime;
 @property (nonatomic, copy) NSString *isOMOrder;
 @property (nonatomic, assign) OrderStatus status;
 
@@ -38,6 +46,7 @@ typedef NS_ENUM(NSInteger, OrderStatus)
 @interface OMDDeliveringDetailObject : OMDBaseObject
 
 // onemenu info
+@property (nonatomic, copy) NSString *isOMOrder;
 @property (nonatomic, copy) NSString *custName;
 @property (nonatomic, copy) NSString *custPhone;
 @property (nonatomic, copy) NSString *custAddr;
@@ -48,6 +57,7 @@ typedef NS_ENUM(NSInteger, OrderStatus)
 
 // commons info
 @property (nonatomic, copy) NSString *billPrice;
+@property (nonatomic, assign) OrderStatus status;
 
 @end
 
@@ -55,5 +65,6 @@ typedef NS_ENUM(NSInteger, OrderStatus)
 
 @property (nonatomic, copy) NSString *dishName;
 @property (nonatomic, copy) NSString *dishPrice;
+@property (nonatomic, strong) NSArray *ingredientArray;
 
 @end

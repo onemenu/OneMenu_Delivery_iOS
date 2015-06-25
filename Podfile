@@ -11,8 +11,9 @@ end
 pod 'SWTableViewCell', '~> 0.3.7'
 
 pod 'MJRefresh', '~> 1.4.7'
-
 pod 'MBProgressHUD'
+# pod 'RMAppStoreVersionCheck'
+pod 'JSBadgeView'
 
-# pod 'AWSSNS'
-# pod 'AWSCognito'
+pod 'AWSSNS'
+pod 'AWSCognito'

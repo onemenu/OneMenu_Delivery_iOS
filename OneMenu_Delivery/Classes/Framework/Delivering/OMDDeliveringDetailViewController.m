@@ -18,8 +18,15 @@ UITableViewDelegate,
 UIAlertViewDelegate>
 
 @property (nonatomic, strong) UITableView *tableView;
+@property (nonatomic, strong) UIView *confirmBgView;
 @property (nonatomic, strong) UIButton *confirmButton;
+@property (nonatomic, strong) UIButton *cancelButton;
 @property (nonatomic, strong) OMDDeliveringDetailObject *detailObj;
+
+@property (nonatomic, strong) UIView *doneBgView;
+@property (nonatomic, strong) UIButton *doneButton;
+
+@property (nonatomic, strong) OMDTipsView *tipsView;
 
 @property (nonatomic, assign) BOOL isOpened;
 
@@ -39,6 +46,8 @@ UIAlertViewDelegate>
 
 - (void)setupViews
 {
+    [self setRightNavigationItemTittle:@"RESET" action:@selector(resetPriceAction)];
+    
     CGRect rect = self.view.bounds;
     rect.size.height -= 54;
     self.tableView = [[UITableView alloc] initWithFrame:rect style:UITableViewStylePlain];
@@ -48,32 +57,267 @@ UIAlertViewDelegate>
     [self.view addSubview:self.tableView];
     
     rect.origin.y += rect.size.height;
-    UIView *bgView = [[UIView alloc] initWithFrame:rect];
-    bgView.backgroundColor = [UIColor whiteColor];
-    [self.view addSubview:bgView];
+    self.confirmBgView = [[UIView alloc] initWithFrame:rect];
+    self.confirmBgView.backgroundColor = [UIColor whiteColor];
+    [self.view addSubview:self.confirmBgView];
+    
+    self.doneBgView = [[UIView alloc] initWithFrame:rect];
+    self.doneBgView.backgroundColor = [UIColor whiteColor];
+    [self.view addSubview:self.doneBgView];
+    
+    self.cancelButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [self.cancelButton addTarget:self action:@selector(cancelAction:) forControlEvents:UIControlEventTouchUpInside];
+    self.cancelButton.frame = CGRectMake(20, 5, (rect.size.width-20*3)/2, 44);
+    
+    [self.cancelButton setTitle:@"Cancel" forState:UIControlStateNormal];
+    [self.cancelButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [self.cancelButton setBackgroundColor:[UIColor whiteColor]];
+    self.cancelButton.layer.cornerRadius = 44.0/2;
+    self.cancelButton.layer.borderColor = [[UIColor lightGrayColor] CGColor];
+    self.cancelButton.layer.borderWidth = 1.0;
+    [self.confirmBgView addSubview:self.cancelButton];
     
     self.confirmButton = [UIButton buttonWithType:UIButtonTypeCustom];
     [self.confirmButton addTarget:self action:@selector(confirmAction:) forControlEvents:UIControlEventTouchUpInside];
-    self.confirmButton.frame = CGRectMake(20, 5, rect.size.width-20*2, 44);
+    self.confirmButton.frame = CGRectMake(self.cancelButton.frame.origin.x+self.cancelButton.frame.size.width+20, self.cancelButton.frame.origin.y, self.cancelButton.frame.size.width, 44);
     [self.confirmButton setTitle:@"Confirm" forState:UIControlStateNormal];
     [self.confirmButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [self.confirmButton setBackgroundColor:[UIColor whiteColor]];
     self.confirmButton.layer.cornerRadius = 44.0/2;
     self.confirmButton.layer.borderColor = [[UIColor lightGrayColor] CGColor];
     self.confirmButton.layer.borderWidth = 1.0;
-    [bgView addSubview:self.confirmButton];
+    [self.confirmBgView addSubview:self.confirmButton];
+    
+    self.doneButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    self.doneButton.frame = CGRectMake(20, 5, rect.size.width-20*2, 44);
+    [self.doneButton addTarget:self action:@selector(doneAction:) forControlEvents:UIControlEventTouchUpInside];
+    [self.doneButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [self.doneButton setTitle:@"Done" forState:UIControlStateNormal];
+    [self.doneButton setBackgroundColor:[UIColor whiteColor]];
+    self.doneButton.layer.cornerRadius = 44.0/2;
+    self.doneButton.layer.borderWidth = 1.0;
+    self.doneButton.layer.borderColor = [[UIColor lightGrayColor] CGColor];
+    [self.doneBgView addSubview:self.doneButton];
+    
+    self.confirmBgView.hidden = YES;
+    self.doneBgView.hidden = YES;
+}
+
+#define kPriceAlertTag 304
+- (void)resetPriceAction
+{
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:@"Input the new price" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"OK", nil];
+    alert.alertViewStyle = UIAlertViewStylePlainTextInput;
+    alert.tag = kPriceAlertTag;
+    [alert show];
 }
 
 - (void)initData
 {
+#ifdef APP_TEST
     self.detailObj = [OMDFalseDataManager gemDeliveringDetailObj];
+#else
+//    self.detailObj = [OMDFalseDataManager gemDeliveringDetailObj];
+    [self doOrderDetailRequest];
+#endif
+}
+
+- (void)doOrderDetailRequest
+{
+    __weak OMDDeliveringDetailViewController *wSelf = self;
+    
+    [self showProcessHUD:nil];
+    OMDDeliveringDetailRequest *request = [[OMDDeliveringDetailRequest alloc] init];
+    request.orderId = self.orderId;
+    
+    [[OMDNetworkManager createNetworkEngineer]
+     getDeliveringDetailWith:request
+     completeBlock:^(OMDNetworkBaseResult *responseObj) {
+         OMDDeliveringDetailViewController *sSelf = wSelf;
+         [sSelf hideProcessHUD];
+         OMDDeliveringDetailResult *result = (OMDDeliveringDetailResult *)responseObj;
+         if ([result.status isEqualToString:kSuccessCode]) {
+             sSelf.detailObj = result.detailObj;
+             [sSelf.tableView reloadData];
+             [sSelf updateConfirmButtonStatus];
+         }
+         else {
+             [sSelf showAlertViewWithMessage:result.msg];
+         }
+    }
+     failureBlock:^(AFHTTPRequestOperation *operation, NSError *error) {
+         OMDDeliveringDetailViewController *sSelf = wSelf;
+         [sSelf hideProcessHUD];
+         [sSelf showAlertViewWithMessage:kCheckNetConnection];
+    }];
+}
+
+- (void)doConfirmOrderRequestWith:(NSString *)orderId
+{
+    [self showProcessHUD:nil];
+    
+    __weak OMDDeliveringDetailViewController *wSelf = self;
+    OMDConfirmOrderRequest *request = [[OMDConfirmOrderRequest alloc] init];
+    request.orderId = orderId;
+    
+    [[OMDNetworkManager createNetworkEngineer]
+     confirmOrderWith:request
+     completeBlock:^(OMDNetworkBaseResult *responseObj) {
+         OMDDeliveringDetailViewController *sSelf = wSelf;
+         [sSelf hideProcessHUD];
+         OMDConfirmOrderResult *result = (OMDConfirmOrderResult *)responseObj;
+         if ([result.status  isEqualToString:kSuccessCode]) {
+             sSelf.detailObj.status = OrderStatus_DriverConfirmed;
+             if (sSelf.confirmBlock) {
+                 sSelf.confirmBlock(OrderStatus_DriverConfirmed, sSelf.indexPath);
+             }
+             [sSelf updateConfirmButtonStatus];
+             [sSelf.tableView reloadData];
+//             [sSelf.navigationController popViewControllerAnimated:YES];
+         }
+         else {
+             [sSelf showAlertViewWithMessage:result.msg];
+         }
+     }
+     failureBlock:^(AFHTTPRequestOperation *operation, NSError *error) {
+         OMDDeliveringDetailViewController *sSelf = wSelf;
+         [sSelf hideProcessHUD];
+         [sSelf showAlertViewWithMessage:kCheckNetConnection];
+     }];
+}
+
+- (void)doCancelOrderRequestWith:(NSString *)orderId
+{
+    [self showProcessHUD:nil];
+    
+    __weak OMDDeliveringDetailViewController *wSelf = self;
+    OMDCancelOrderRequest *request = [[OMDCancelOrderRequest alloc] init];
+    request.orderId = orderId;
+    [[OMDNetworkManager createNetworkEngineer]
+     cancelOrderWith:request
+     completeBlock:^(OMDNetworkBaseResult *responseObj) {
+         OMDDeliveringDetailViewController *sSelf = wSelf;
+         [sSelf hideProcessHUD];
+         OMDCancelOrderResult *result = (OMDCancelOrderResult *)responseObj;
+         if ([result.status isEqualToString:kSuccessCode]) {
+             if (sSelf.confirmBlock) {
+                 sSelf.confirmBlock(OrderStatus_DriverCancel, sSelf.indexPath);
+             }
+             
+             [sSelf.navigationController popViewControllerAnimated:YES];
+         }
+         else {
+             [sSelf showAlertViewWithMessage:result.msg];
+         }
+     }
+     failureBlock:^(AFHTTPRequestOperation *operation, NSError *error) {
+         OMDDeliveringDetailViewController *sSelf = wSelf;
+         [sSelf hideProcessHUD];
+         [sSelf showAlertViewWithMessage:kCheckNetConnection];
+     }];
+}
+
+- (void)doDoneOrderRequestWith:(NSString *)orderId tipsType:(TipsType)type tipsFee:(NSString *)tipsFee
+{
+    [self showProcessHUD:nil];
+    
+    __weak OMDDeliveringDetailViewController *wSelf = self;
+    OMDDoneOrderRequest *request = [[OMDDoneOrderRequest alloc] init];
+    request.orderId = orderId;
+    request.tipsType = [NSString stringWithFormat:@"%zd",type];
+    request.tipsFee = tipsFee;
+    request.driverId = [OMDUtility getCurrentCustomerId];
+    [[OMDNetworkManager createNetworkEngineer]
+     doneOrderWith:request
+     completeBlock:^(OMDNetworkBaseResult *responseObj) {
+         OMDDeliveringDetailViewController *sSelf = wSelf;
+         [sSelf hideProcessHUD];
+         OMDDoneOrderResult *result = (OMDDoneOrderResult *)responseObj;
+         if ([result.status isEqualToString:kSuccessCode]) {
+             if (sSelf.confirmBlock) {
+                 sSelf.confirmBlock(OrderStatus_DriverDone, sSelf.indexPath);
+             }
+             [sSelf.navigationController popViewControllerAnimated:YES];
+         }
+         else {
+             [sSelf showAlertViewWithMessage:result.msg];
+         }
+     }
+     failureBlock:^(AFHTTPRequestOperation *operation, NSError *error) {
+         OMDDeliveringDetailViewController *sSelf = wSelf;
+         [sSelf hideProcessHUD];
+         [sSelf showAlertViewWithMessage:kCheckNetConnection];
+     }];
+}
+
+- (void)doResetOrderPriceRequestWith:(NSString *)price
+{
+    __weak OMDDeliveringDetailViewController *wSelf = self;
+    OMDResetOrderPriceRequest *request = [[OMDResetOrderPriceRequest alloc] init];
+    request.orderId = self.orderId;
+    request.billPrice = price;
+    
+    [self showProcessHUD:nil];
+    [[OMDNetworkManager createNetworkEngineer]
+     resetOrderPriceWith:request
+     completeBlock:^(OMDNetworkBaseResult *responseObj) {
+         OMDDeliveringDetailViewController *sSelf = wSelf;
+         [sSelf hideProcessHUD];
+         OMDResetOrderPriceResult *result = (OMDResetOrderPriceResult *)responseObj;
+         if ([result.status isEqualToString:kSuccessCode]) {
+             sSelf.detailObj.billPrice = price;
+             [sSelf.tableView reloadData];
+             if (sSelf.resetPriceBlock) {
+                 sSelf.resetPriceBlock(price,sSelf.indexPath);
+             }
+         }
+    }
+     failureBlock:^(AFHTTPRequestOperation *operation, NSError *error) {
+         OMDDeliveringDetailViewController *sSelf = wSelf;
+         [sSelf hideProcessHUD];
+    }];
 }
 
 #define kConfirmTag 1234
+#define kCancelTag 1235
+#define kDoneTag 1236
 #pragma mark -- Buttion Actions --
 - (void)confirmAction:(UIButton *)sender
 {
-    [self showAlertViewWithMessage:@"Confirm this order?" tag:kConfirmTag cancelString:@"Cancel" sureString:@"Confirm"];
+    [self showAlertViewWithMessage:@"Confirm this order?" tag:kConfirmTag cancelString:@"NO" sureString:@"YES"];
+}
+
+- (void)cancelAction:(UIButton *)sender
+{
+    [self showAlertViewWithMessage:@"Cancel this order?" tag:kCancelTag cancelString:@"NO" sureString:@"YES"];
+}
+
+- (void)doneAction:(UIButton *)sender
+{
+//    [self showAlertViewWithMessage:@"Done this order?" tag:kDoneTag cancelString:@"NO" sureString:@"YES"];
+    __weak OMDDeliveringDetailViewController *wSelf = self;
+    if (!self.tipsView) {
+        self.tipsView = [[OMDTipsView alloc] initWithFrame:self.view.bounds];
+        [self.view addSubview:self.tipsView];
+        [self.tipsView setConfirmBlock:^(TipsType type, NSString *tipsFee) {
+            OMDDeliveringDetailViewController *sSelf = wSelf;
+            [sSelf doDoneOrderRequestWith:sSelf.orderId tipsType:type tipsFee:tipsFee];
+        }];
+    }
+    [self.tipsView show];
+}
+
+#pragma mark --
+- (void)updateConfirmButtonStatus
+{
+    if (self.detailObj.status == OrderStatus_DriverUnConfirm) {
+        self.confirmBgView.hidden = NO;
+        self.doneBgView.hidden = YES;
+    }
+    else if (self.detailObj.status == OrderStatus_DriverConfirmed) {
+        self.confirmBgView.hidden = YES;
+        self.doneBgView.hidden = NO;
+    }
 }
 
 #pragma mark -- UITableViewDatasource --
@@ -107,15 +351,19 @@ UIAlertViewDelegate>
     UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:nil];
     if (0 == indexPath.row) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:nil];
-        cell.textLabel.text = self.detailObj.orderCode;
+        cell.textLabel.text = @"Order Code:";
+        cell.detailTextLabel.text = self.detailObj.orderCode;
+        
     }
     else if (1 == indexPath.row) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:nil];
-        cell.textLabel.text = self.detailObj.custName;
+        cell.textLabel.text = @"Cust Name:";
+        cell.detailTextLabel.text = self.detailObj.custName;
     }
     else if (2 == indexPath.row) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:nil];
-        cell.textLabel.text = self.detailObj.custPhone;
+        cell.textLabel.text = @"Phone:";
+        cell.detailTextLabel.text = self.detailObj.custPhone;
         cell.textLabel.textColor = [UIColor blueColor];
     }
     else if (3 == indexPath.row) {
@@ -175,16 +423,27 @@ UIAlertViewDelegate>
 #pragma mark -- UIAlertView Delegate --
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
+    __weak OMDDeliveringDetailViewController *wSelf = self;
     if (alertView.tag == kConfirmTag) {
         if (buttonIndex == [alertView firstOtherButtonIndex]) {
-            __weak OMDDeliveringDetailViewController *wSelf = self;
-            [self showProcessHUD:@"Confirm successful" completionBlock:^{
-                OMDDeliveringDetailViewController *sSelf = wSelf;
-                if (sSelf.confirmBlock) {
-                    sSelf.confirmBlock(self.index);
-                }
-                [sSelf.navigationController popViewControllerAnimated:YES];
-            }];
+            [self doConfirmOrderRequestWith:self.orderId];
+        }
+    }
+    else if (alertView.tag == kCancelTag) {
+        if (buttonIndex == [alertView firstOtherButtonIndex]) {
+            [self doCancelOrderRequestWith:self.orderId];
+        }
+    }
+//    else if (alertView.tag == kDoneTag) {
+//        if (buttonIndex == [alertView firstOtherButtonIndex]) {
+//
+//        }
+//    }
+    else if (alertView.tag == kPriceAlertTag) {
+        if (buttonIndex == [alertView firstOtherButtonIndex]) {
+            UITextField *tf = [alertView textFieldAtIndex:0];//获得输入框
+            NSString *nwPrice = tf.text;
+            [self doResetOrderPriceRequestWith:nwPrice];
         }
     }
 }

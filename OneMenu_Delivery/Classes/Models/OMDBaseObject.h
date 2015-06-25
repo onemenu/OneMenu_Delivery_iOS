@@ -6,7 +6,7 @@
 //  Copyright (c) 2014年 Three Idiot. All rights reserved.
 //
 
-#import "OMUtility.h"
+#import "OMDUtility.h"
 #import <Foundation/Foundation.h>
 #import "UIImageView+WebCache.h"
 

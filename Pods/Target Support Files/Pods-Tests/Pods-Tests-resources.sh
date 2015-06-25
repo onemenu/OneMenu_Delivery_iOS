@@ -58,10 +58,22 @@ install_resource()
   esac
 }
 if [[ "$CONFIGURATION" == "Release" ]]; then
+  install_resource "AWSCognito/CognitoSync/Resources/cognito-sync-2014-06-30.json"
+  install_resource "AWSCore/AWSCore/CognitoIdentity/Resources/cognito-identity-2014-06-30.json"
+  install_resource "AWSCore/AWSCore/MobileAnalyticsERS/Resources/mobileanalytics-2014-06-30.json"
+  install_resource "AWSCore/AWSCore/STS/Resources/sts-2011-06-15.json"
+  install_resource "AWSSNS/AWSSNS/Resources/sns-2010-03-31.json"
   install_resource "MJRefresh/MJRefreshExample/MJRefreshExample/MJRefresh/MJRefresh.bundle"
+  install_resource "${BUILT_PRODUCTS_DIR}/JSBadgeView.bundle"
 fi
 if [[ "$CONFIGURATION" == "Debug" ]]; then
+  install_resource "AWSCognito/CognitoSync/Resources/cognito-sync-2014-06-30.json"
+  install_resource "AWSCore/AWSCore/CognitoIdentity/Resources/cognito-identity-2014-06-30.json"
+  install_resource "AWSCore/AWSCore/MobileAnalyticsERS/Resources/mobileanalytics-2014-06-30.json"
+  install_resource "AWSCore/AWSCore/STS/Resources/sts-2011-06-15.json"
+  install_resource "AWSSNS/AWSSNS/Resources/sns-2010-03-31.json"
   install_resource "MJRefresh/MJRefreshExample/MJRefreshExample/MJRefresh/MJRefresh.bundle"
+  install_resource "${BUILT_PRODUCTS_DIR}/JSBadgeView.bundle"
 fi
 
 rsync -avr --copy-links --no-relative --exclude '*/.svn/*' --files-from="$RESOURCES_TO_COPY" / "${CONFIGURATION_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}"

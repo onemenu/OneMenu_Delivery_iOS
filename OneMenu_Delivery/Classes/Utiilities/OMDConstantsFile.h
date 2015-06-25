@@ -93,12 +93,6 @@
 
 #define kMainScrollViewTag            44
 
-// OMOneMenuCell
-#define kOneMenuCell_Dish_Label_height       25
-#define kOneMenuCell_Review_Name_height 25
-#define kOneMenuCell_Review_Icon_height 25
-#define kOneMenuCell_Review_Title_height 42
-
 // Global
 #define kNavigationBarHeight self.navigationController.navigationBar.frame.size.height
 #define kStateBarHeight 20
@@ -112,15 +106,6 @@ static NSTimeInterval const timeInterval = 10;  // seconds
 #define kUnableLoadMore             @"Lol, you run out of new feeds."
 #define kEmptyNotice                @"Required Field(s) Missing"
 
-// ShoppingCart
-#define kTakeOut_key    @"Take Out"
-#define kDelivery_key   @"Delivery"
-#define kShoppingCartPlist_key  @"shoppingCart.plist"
-
-// Commons
-#define kOrderDishObject_key    @"orderDishObject"
-#define kLocalTax_key           @"localTax"
-
 // keys
 #define kAppLocalVersion_key @"localVersion"
 
@@ -129,76 +114,14 @@ static NSTimeInterval const timeInterval = 10;  // seconds
 #define kHelvetica_key      @"Helvetica"
 
 // Notifications
-static NSString * const kTabbarIconNotification = @"tabbarIconNotification";
 static NSString * const kRemoteNotification = @"remoteNotification";
-static NSString * const kAddToShoppingCartNotification = @"addToShoppingCartNotification";
-static NSString * const kDownLoadAvatarImageCompletedNotification = @"downLoadAvatarImageCompletedNotification";
-static NSString * const kLogoutNotification = @"logoutNotification";
 static NSString * const kLoginSuccessedNotification = @"loginSuccessedNotification";
 static NSString * const kLoginFailureNotification = @"loginFailureNotification";
-static NSString * const kCheckoutSuccessNotification = @"checkoutSuccessNotification";
+static NSString * const kAutoLoginSuccessedNotification = @"autoLoginSuccessedNotification";
+static NSString * const kAutoLoginFailureNotification = @"autoLoginFailureNotification";
 static NSString * const kGetLocationSuccessNotification = @"getLocationSuccessNotification";
 static NSString * const kGetLocationFailureNotification = @"getLocationFailureNotification";
 static NSString * const kGetLocationDeniedNotification = @"getLocationDeniedNotification";
-static NSString * const kGetCustomerCouponsSuccessedNotification = @"saveCouponSuccessedNotification";
-
-//const string
-static NSString * const kDishStatus_Delete = @"-1";
-static NSString * const kDishStatus_Normal = @"1";
-static NSString * const kDishStatus_OutOfOrder = @"0";
-
-static NSString * const kRestaurantStatus_Disable = @"0";
-static NSString * const kRestaurantStatus_Enable = @"1";
-
-//tarde Type
-static NSString * const kTradeType_TakeOut = @"1";
-static NSString * const kTradeType_Delivery = @"2";
-
-//thirdParty Type
-static NSString * const kThirdParty_Facebook = @"1";
-static NSString * const kThirdParty_Twitter = @"2";
-static NSString * const kThirdParty_WeChat = @"3";
-
-//login Type
-static NSString * const kLoginType_Email = @"0";
-static NSString * const kLoginType_Facebook = @"1";
-static NSString * const kLoginType_Twitter = @"2";
-static NSString * const kLoginType_WeChat = @"3";
-
-//coupon Target Type
-static NSString * const kCouponTarget_Dish = @"1";
-static NSString * const kCouponTarget_Rawbill = @"2";
-static NSString * const kCouponTarget_Trade = @"3";
-
-//coupon ExtraCri Type
-static NSString * const kCouponExtraCri_Non = @"0";
-static NSString * const kCouponExtraCri_Dish = @"1";
-static NSString * const kCouponExtraCri_Rawbill = @"2";
-static NSString * const kCouponExtraCri_Trade = @"3";
-
-//coupon Type
-static NSString * const kCouponType_SpecialPrice = @"1";
-static NSString * const kCouponType_DiscountPrice = @"2";
-static NSString * const kCouponType_DiscountPercentage = @"3";
-static NSString * const kCouponType_Free = @"4";
-
-//type define
-typedef NS_ENUM(int, CheckOutType) {
-    CheckOutType_Non = 0,
-    CheckOutType_Delivery = 1,
-    CheckOutType_TakeOut = 2
-};
-
-typedef NS_ENUM(int, DeliveryStatus) {
-    DeliveryStatus_Unavailable = 0,
-    DeliveryStatus_Available = 1
-};
-
-typedef NS_ENUM(int, TakeOutStatus) {
-    TakeOutStatus_Unavailable = 0,
-    TakeOutStatus_Available = 1
-};
-
 
 #pragma mark -- Error Code --
 // Common Code
@@ -228,21 +151,9 @@ typedef NS_ENUM(int, TakeOutStatus) {
 #define kFail_key   @"0"
 
 
-#define APP_TEST 1
-//#define APP_SIMULATION 1
-//#define APP_LOGIN 1
+#define APP_MANAGER
 
-#define APP_LOCATION_TEST
 
-//#define APP_HOST
-
-//#define APP_BETA
-
-#define APP_CHECKOUT
-
-#ifdef APP_LOGIN
-#define kIsLoginBefore_key @"isLoginBefore"
-#endif
 
 #endif
 

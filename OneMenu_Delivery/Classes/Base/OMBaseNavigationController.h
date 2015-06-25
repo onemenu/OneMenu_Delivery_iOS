@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "OMDConstantsFile.h"
-#import "OMUtility.h"
+#import "OMDUtility.h"
 
 typedef NS_ENUM(NSInteger, DirectionStatus) {
     DirectionStatus_FromLeft = 0,

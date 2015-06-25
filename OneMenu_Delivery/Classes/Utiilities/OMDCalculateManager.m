@@ -7,7 +7,7 @@
 //
 
 #import "OMDCalculateManager.h"
-#import "OMUtility.h"
+#import "OMDUtility.h"
 
 @implementation OMDCalculateManager
 
@@ -15,10 +15,10 @@
 {
     NSString *nonEmptyStringOne = @"0.00";
     NSString *nonEmptyStringTwo = @"0.00";
-    if (![OMUtility StringIsEmptyWith:stringOne]) {
+    if (![OMDUtility StringIsEmptyWith:stringOne]) {
         nonEmptyStringOne = stringOne;
     }
-    if (![OMUtility StringIsEmptyWith:stringTwo]) {
+    if (![OMDUtility StringIsEmptyWith:stringTwo]) {
         nonEmptyStringTwo = stringTwo;
     }
     NSDecimalNumber *numberOne = [[NSDecimalNumber alloc] initWithString:nonEmptyStringOne];
@@ -32,10 +32,10 @@
 {
     NSString *nonEmptyStringOne = @"0.00";
     NSString *nonEmptyStringTwo = @"0.00";
-    if (![OMUtility StringIsEmptyWith:stringOne]) {
+    if (![OMDUtility StringIsEmptyWith:stringOne]) {
         nonEmptyStringOne = stringOne;
     }
-    if (![OMUtility StringIsEmptyWith:stringTwo]) {
+    if (![OMDUtility StringIsEmptyWith:stringTwo]) {
         nonEmptyStringTwo = stringTwo;
     }
     NSDecimalNumber *numberOne = [[NSDecimalNumber alloc] initWithString:nonEmptyStringOne];
@@ -49,10 +49,10 @@
 {
     NSString *nonEmptyStringOne = @"0.00";
     NSString *nonEmptyStringTwo = @"0.00";
-    if (![OMUtility StringIsEmptyWith:stringOne]) {
+    if (![OMDUtility StringIsEmptyWith:stringOne]) {
         nonEmptyStringOne = stringOne;
     }
-    if (![OMUtility StringIsEmptyWith:stringTwo]) {
+    if (![OMDUtility StringIsEmptyWith:stringTwo]) {
         nonEmptyStringTwo = stringTwo;
     }
     NSDecimalNumber *numberOne = [[NSDecimalNumber alloc] initWithString:nonEmptyStringOne];
@@ -66,10 +66,10 @@
 {
     NSString *nonEmptyStringOne = @"0.00";
     NSString *nonEmptyStringTwo = @"0.00";
-    if (![OMUtility StringIsEmptyWith:stringOne]) {
+    if (![OMDUtility StringIsEmptyWith:stringOne]) {
         nonEmptyStringOne = stringOne;
     }
-    if (![OMUtility StringIsEmptyWith:stringTwo]) {
+    if (![OMDUtility StringIsEmptyWith:stringTwo]) {
         nonEmptyStringTwo = stringTwo;
     }
     NSDecimalNumber *numberOne = [[NSDecimalNumber alloc] initWithString:nonEmptyStringOne];
@@ -111,7 +111,7 @@
 {
 //    CGFloat num = [number floatValue];
     NSString *nonEmptyNumber = @"0.00";
-    if (![OMUtility StringIsEmptyWith:number]) {
+    if (![OMDUtility StringIsEmptyWith:number]) {
         nonEmptyNumber = number;
     }
     NSDecimalNumberHandler *roundingBehavior = [NSDecimalNumberHandler decimalNumberHandlerWithRoundingMode:NSRoundUp
@@ -138,7 +138,7 @@
 + (NSString *)downDoubleDecimalNumberWith:(NSString *)number
 {
     NSString *nonEmptyNumber = @"0.00";
-    if (![OMUtility StringIsEmptyWith:number]) {
+    if (![OMDUtility StringIsEmptyWith:number]) {
         nonEmptyNumber = number;
     }
     NSDecimalNumberHandler *roundingBehavior = [NSDecimalNumberHandler decimalNumberHandlerWithRoundingMode:NSRoundDown
@@ -165,7 +165,7 @@
 + (NSString *)roundBankerDoubleDecimalNumberWith:(NSString *)number
 {
     NSString *nonEmptyNumber = @"0.00";
-    if (![OMUtility StringIsEmptyWith:number]) {
+    if (![OMDUtility StringIsEmptyWith:number]) {
         nonEmptyNumber = number;
     }
     NSDecimalNumberHandler *roundingBehavior = [NSDecimalNumberHandler decimalNumberHandlerWithRoundingMode:NSRoundBankers
@@ -190,7 +190,7 @@
 + (NSString *)plainDoubleDecimalNumberWith:(NSString *)number
 {
     NSString *nonEmptyNumber = @"0.00";
-    if (![OMUtility StringIsEmptyWith:number]) {
+    if (![OMDUtility StringIsEmptyWith:number]) {
         nonEmptyNumber = number;
     }
     NSDecimalNumberHandler *roundingBehavior = [NSDecimalNumberHandler decimalNumberHandlerWithRoundingMode:NSRoundPlain
@@ -215,7 +215,7 @@
 + (NSString *)transToRateWithString:(NSString *)numberStr
 {
     NSString *nonEmptyNumber = @"0.00";
-    if (![OMUtility StringIsEmptyWith:numberStr]) {
+    if (![OMDUtility StringIsEmptyWith:numberStr]) {
         nonEmptyNumber = numberStr;
     }
     NSString *rateStr = [OMDCalculateManager dividingNumberWithStringOne:nonEmptyNumber stringTwo:@"100"];
@@ -231,7 +231,7 @@
 + (NSString *)transToInverseRateWithString:(NSString *)numberStr
 {
     NSString *nonEmptyNumber = @"0.00";
-    if (![OMUtility StringIsEmptyWith:numberStr]) {
+    if (![OMDUtility StringIsEmptyWith:numberStr]) {
         nonEmptyNumber = numberStr;
     }
     NSString *rateStr = [OMDCalculateManager transToRateWithString:nonEmptyNumber];
@@ -250,10 +250,10 @@
 {
     NSString *nonEmptyStringOne = @"0.00";
     NSString *nonEMptyStringTwo = @"0.00";
-    if (![OMUtility StringIsEmptyWith:stringOne]) {
+    if (![OMDUtility StringIsEmptyWith:stringOne]) {
         nonEmptyStringOne = stringOne;
     }
-    if (![OMUtility StringIsEmptyWith:stringTwo]) {
+    if (![OMDUtility StringIsEmptyWith:stringTwo]) {
         nonEMptyStringTwo = stringTwo;
     }
     BOOL isBigger = NO;
@@ -278,10 +278,10 @@
 {
     NSString *nonEmptyStringOne = @"0.00";
     NSString *nonEMptyStringTwo = @"0.00";
-    if (![OMUtility StringIsEmptyWith:stringOne]) {
+    if (![OMDUtility StringIsEmptyWith:stringOne]) {
         nonEmptyStringOne = stringOne;
     }
-    if (![OMUtility StringIsEmptyWith:stringTwo]) {
+    if (![OMDUtility StringIsEmptyWith:stringTwo]) {
         nonEMptyStringTwo = stringTwo;
     }
     BOOL isEqual = NO;
@@ -306,10 +306,10 @@
 {
     NSString *nonEmptyStringOne = @"0.00";
     NSString *nonEMptyStringTwo = @"0.00";
-    if (![OMUtility StringIsEmptyWith:stringOne]) {
+    if (![OMDUtility StringIsEmptyWith:stringOne]) {
         nonEmptyStringOne = stringOne;
     }
-    if (![OMUtility StringIsEmptyWith:stringTwo]) {
+    if (![OMDUtility StringIsEmptyWith:stringTwo]) {
         nonEMptyStringTwo = stringTwo;
     }
     BOOL isSmaller = NO;
